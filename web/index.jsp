@@ -59,22 +59,6 @@
                             <button class="btn btn-success medio">Clientes CNPJ</button>
                         </form>
                         <hr>
-                        <form action="FrontController?action=LerEntregador" method="post">
-                            <button class="btn btn-success medio">Entregadores</button>
-                        </form>
-                        <hr>
-                        <form action="FrontController?action=LerMontador" method="post">
-                            <button class="btn btn-success medio">Montadores</button>
-                        </form>
-                        <hr>
-                        <form action="FrontController?action=LerVeiculo" method="post">
-                            <button class="btn btn-success medio">Veiculos</button>
-                        </form>
-                        <hr>
-                        <form action="FrontController?action=LerEncomenda" method="post">
-                            <button class="btn btn-success medio">Encomendas</button>
-                        </form>
-                        <hr>
                     </div>      
             </div> 
             <div class="row" style="text-align: center">
