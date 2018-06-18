@@ -1,18 +1,25 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package action;
 
 import controller.Action;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Cliente;
-import persistence.ClienteDAO;
+import model.Funcionario;
+import persistence.FuncionarioDAO;
 
-public class GravarClienteAction implements Action {
+/**
+ *
+ * @author victor.domingos
+ */
+public class GravarFuncionarioAction implements Action {
 
-    public GravarClienteAction() {
+    public GravarFuncionarioAction() {
     
     }
     
@@ -30,8 +37,8 @@ public class GravarClienteAction implements Action {
             response.sendRedirect("index.jsp");
         } else{
             try{
-                Cliente cliente = new Cliente(nome, logradouro, numero, bairro, cep, telefone, celular, cpf);
-                ClienteDAO.getInstance().save(cliente);
+                Funcionario funcionario = new Funcionario(nome, logradouro, numero, bairro, cep, telefone, celular, cpf);
+                FuncionarioDAO.getInstance().save(funcionario);
                 response.sendRedirect("sucesso.jsp");
             } catch(SQLException ex)
             {
