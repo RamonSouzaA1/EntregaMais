@@ -59,6 +59,10 @@
                             <button class="btn btn-success medio">Clientes CNPJ</button>
                         </form>
                         <hr>
+                        <form action="FrontController?action=LerPedido" method="post">
+                            <button class="btn btn-success medio">Pedido</button>
+                        </form>
+                        <hr>
                     </div>      
             </div> 
             <div class="row" style="text-align: center">
