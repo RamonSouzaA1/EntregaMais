@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-        <title>Editar Cliente</title>
+        <title>Editar Pedido</title>
     </head>
 
     <body>
@@ -30,9 +30,9 @@
             </div>
         </nav>
         <div id="main" class="container-fluid">
-            <h3 class="page-header">Edição de Clientes</h3>
+            <h3 class="page-header">Edição de Pedidos</h3>
 
-            <form action="FrontController?action=EditarCliente" method="post">
+            <form action="FrontController?action=EditarPedido" method="post">
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="campo1">Id</label>

@@ -30,10 +30,11 @@ public class Pedido {
         this.id = id;
     }
 
-    public Pedido(String dataPedido, String valorPedido, String hora) {
+    public Pedido(String hora, String dataPedido, String valorPedido) {
+        this.hora = hora;
         this.dataPedido = dataPedido;
         this.valorPedido = valorPedido;
-        this.hora = hora;
+        
     }
 
     public int getId() {

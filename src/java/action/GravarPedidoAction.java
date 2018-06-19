@@ -25,14 +25,14 @@ public class GravarPedidoAction  implements Action {
     
     public void execute(HttpServletRequest request,
             HttpServletResponse response) throws IOException{
+        String hora = request.getParameter("txtHora");
         String dataPedido = request.getParameter("txtDataPedido");
         String valorPedido = request.getParameter("txtValorPedido");
-        String hora = request.getParameter("txtHora");
-        if(dataPedido.equals("")){
+        if(hora.equals("")){
             response.sendRedirect("index.jsp");
         } else{
             try{
-                Pedido pedido = new Pedido(dataPedido, valorPedido, hora);
+                Pedido pedido = new Pedido(hora, dataPedido, valorPedido);
                 PedidoDAO.getInstance().save(pedido);
                 response.sendRedirect("sucesso.jsp");
             } catch(SQLException ex)

@@ -40,24 +40,26 @@ public class PedidoDAO {
         }
     }
     
-    
     public void save(Pedido pedido) throws SQLException,
             ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
         try {
             conn = DatabaseLocator.getInstance().getConnection();
+            st = conn.createStatement();
             
-            st.execute("insert into pedido (dataPedido, valorPedido, hora)"
-                    + " values ('" + pedido.getDataPedido() + "', '"+ pedido.getValorPedido() +"', "+ pedido.getHora() +"')");
+            st.execute("insert into pedido (hora, dataPedido, valorPedido)"
+                    + " values ('" + pedido.getHora() + "', '"+ pedido.getDataPedido() +"', '"+ pedido.getValorPedido()+"')");
+           
+                        
                         
         } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
-    }  
-    
+    }
+  
     public List<Pedido> obterPedidos() throws ClassNotFoundException, SQLException{
         Connection conn = null;
         Statement st = null;
