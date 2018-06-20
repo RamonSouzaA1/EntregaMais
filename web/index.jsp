@@ -67,6 +67,10 @@
                             <button class="btn btn-success medio">Funcionario</button>
                         </form>
                         <hr>
+                        <form action="FrontController?action=LerVeiculo" method="post">
+                            <button class="btn btn-success medio">Veiculo</button>
+                        </form>
+                        <hr>
                     </div>      
             </div> 
             <div class="row" style="text-align: center">
