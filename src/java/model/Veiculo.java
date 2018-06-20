@@ -21,6 +21,8 @@ public class Veiculo extends Observable {
     private String modelo;
     public VeiculoEstado estado;
     public String nomeFuncionario;
+    
+    
 
     public Veiculo() {
     }
