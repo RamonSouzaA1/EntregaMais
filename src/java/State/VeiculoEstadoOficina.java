@@ -3,23 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package State;
+
+import model.*;
 
 /**
  *
  * @author victor.domingos
  */
-public class VeiculoEstadoEmServico implements VeiculoEstado{
+public class VeiculoEstadoOficina implements VeiculoEstado{
 
     @Override
     public String getEstado() {
-        return "Em serviço";
+        return "Oficina";
     }
 
     @Override
     public String disponivel(Veiculo v) {
         v.setEstado(new VeiculoEstadoDisponivel());
-        return "Veiculo está disponivel.";
+        return "Veiculo está disponível.";
     }
 
     @Override
@@ -31,13 +33,12 @@ public class VeiculoEstadoEmServico implements VeiculoEstado{
     @Override
     public String oficina(Veiculo v) {
         return "Não é possível executar função.";
-        
     }
 
     @Override
     public String emDesuso(Veiculo v) {
-        return "Não é possível executar função.";
-        
+        v.setEstado(new VeiculoEstadoEmDesuso());
+        return "Veiculo está em desuso.";
     }
     
 }

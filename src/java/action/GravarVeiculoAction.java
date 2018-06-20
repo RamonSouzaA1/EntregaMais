@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Funcionario;
-import model.Veiculo;
+import State.Veiculo;
 import persistence.VeiculoDAO;
 
 /**
