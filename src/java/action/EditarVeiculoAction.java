@@ -41,7 +41,7 @@ public class EditarVeiculoAction implements Action {
 
                 switch (situacao) {
                     case "Disponível":
-                        if (veiculo.estado.getEstado().equals("Disponível")) {
+                        if (veiculo.estado.getEstado().equals("Disponível") || veiculo.estado.getEstado().equals("Em desuso")) {
                             response.sendRedirect("sucessoComRestricao.jsp");
                         } else {
                             veiculoDAO.editar(veiculo, placa, marca, modelo, situacao);
@@ -52,16 +52,14 @@ public class EditarVeiculoAction implements Action {
                     case "Em desuso":
                         if (veiculo.estado.getEstado().equals("Em desuso")) {
                             response.sendRedirect("sucessoComRestricao.jsp");
-                        } 
-                        
-//                        else {
-//                            veiculoDAO.editar(veiculo, placa, marca, modelo, situacao);
-//                            response.sendRedirect("sucesso.jsp");
-//                        }
+                        }                         
+                        else {
+                            veiculoDAO.editar(veiculo, placa, marca, modelo, situacao);
+                            response.sendRedirect("sucesso.jsp");
+                        }
                         break;
                     case "Em serviço":
-                        //veiculo.estado.emServico(veiculo).equals("Não é possível executar função.")
-                        if (veiculo.estado.getEstado().equals("Em serviço")) {
+                        if (veiculo.estado.getEstado().equals("Em serviço") || veiculo.estado.getEstado().equals("Em desuso") || veiculo.estado.getEstado().equals("Oficina")) {
                             response.sendRedirect("sucessoComRestricao.jsp");
                         } else {
                             veiculoDAO.editar(veiculo, placa, marca, modelo, situacao);
@@ -69,9 +67,8 @@ public class EditarVeiculoAction implements Action {
                         }
                         break;
                     case "Oficina":
-                        //veiculo.estado.oficina(veiculo).equals("Não é possível executar função.")
 
-                        if (veiculo.estado.getEstado().equals("Oficina")) {
+                        if (veiculo.estado.getEstado().equals("Oficina")|| veiculo.estado.getEstado().equals("Em desuso")) {
                             response.sendRedirect("sucessoComRestricao.jsp");
                         } else {
                             veiculoDAO.editar(veiculo, placa, marca, modelo, situacao);
