@@ -26,19 +26,31 @@ import persistence.ClienteDAO;
  */
 public class FlyWeigth  implements Action{
     
+    private String op;
     
+    //A opção deve ser setada antes do execute
+    //As opções são: promocao e cardapio
+    public void Opcao(String opcao){
+        this.setOp(opcao);
+    }
     
     public void execute(HttpServletRequest request,
             HttpServletResponse response) throws IOException{
             try{
                 List<Cliente> clientes = new ArrayList<Cliente>();
+                List<String> mensagens = new ArrayList<String>();
+                
                 clientes = ClienteDAO.getInstance().obterClientes();
                 
                 ServidorEmail serv = new ServidorEmail();
                 
                 for(Cliente cliente : clientes){
-                    serv.Anuncia(conteudo, cliente);
+                    mensagens.add(serv.Anuncia(this.getOp(), cliente));
                 }
+                
+                request.setAttribute("mensagens", mensagens);
+                RequestDispatcher view = request.getRequestDispatcher("mensagensEnviadas.jsp");
+                view.forward(request, response);
                 
             } catch(SQLException ex)
             {
@@ -46,7 +58,22 @@ public class FlyWeigth  implements Action{
                 ex.printStackTrace();
             } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
+        } catch (ServletException ex) {
+            Logger.getLogger(LerFuncionarioAction.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
+    /**
+     * @return the op
+     */
+    public String getOp() {
+        return op;
+    }
+
+    /**
+     * @param op the op to set
+     */
+    public void setOp(String op) {
+        this.op = op;
+    }
 }
