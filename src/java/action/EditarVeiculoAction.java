@@ -37,12 +37,63 @@ public class EditarVeiculoAction implements Action {
                 VeiculoDAO veiculoDAO = new VeiculoDAO();
                 Veiculo veiculo = new Veiculo();
                 veiculo = veiculoDAO.obterVeiculo(id);
-                veiculoDAO.editar(veiculo, placa, marca, modelo, situacao);
-                veiculo = veiculoDAO.obterVeiculo(id);
                 //(situacao.equals(veiculo.estado.getEstado()) && !situacao.equals(veiculo.estado.getEstado()))
-                if(!situacao.equals(veiculo.estado.getEstado())){                                      
-                    response.sendRedirect("sucessoComRestricao.jsp");
-                }else response.sendRedirect("sucesso.jsp");
+
+                switch (situacao) {
+                    case "Disponível":
+                        if (veiculo.estado.getEstado().equals("Disponível")) {
+                            response.sendRedirect("sucessoComRestricao.jsp");
+                        } else {
+                            veiculoDAO.editar(veiculo, placa, marca, modelo, situacao);
+
+                            response.sendRedirect("sucesso.jsp");
+                        }
+                        break;
+                    case "Em desuso":
+                        if (veiculo.estado.getEstado().equals("Em desuso")) {
+                            response.sendRedirect("sucessoComRestricao.jsp");
+                        } 
+                        
+//                        else {
+//                            veiculoDAO.editar(veiculo, placa, marca, modelo, situacao);
+//                            response.sendRedirect("sucesso.jsp");
+//                        }
+                        break;
+                    case "Em serviço":
+                        //veiculo.estado.emServico(veiculo).equals("Não é possível executar função.")
+                        if (veiculo.estado.getEstado().equals("Em serviço")) {
+                            response.sendRedirect("sucessoComRestricao.jsp");
+                        } else {
+                            veiculoDAO.editar(veiculo, placa, marca, modelo, situacao);
+                            response.sendRedirect("sucesso.jsp");
+                        }
+                        break;
+                    case "Oficina":
+                        //veiculo.estado.oficina(veiculo).equals("Não é possível executar função.")
+
+                        if (veiculo.estado.getEstado().equals("Oficina")) {
+                            response.sendRedirect("sucessoComRestricao.jsp");
+                        } else {
+                            veiculoDAO.editar(veiculo, placa, marca, modelo, situacao);
+                            response.sendRedirect("sucesso.jsp");
+                        }
+
+                        break;
+                }
+
+//                if (situacao.equals("Disponível")) {
+//                    // veiculo.estado.getEstado().equals("Disponível")
+//                    if (veiculo.estado.disponivel(veiculo).equals("Não é possível executar função.")) {
+//                        response.sendRedirect("sucessoComRestricao.jsp");
+//                    } else if (situacao.equals("Em desuso")) {
+//                        //veiculo.estado.getEstado().equals("Em desuso")
+//                        if (veiculo.estado.getEstado().equals("Em desuso")) {
+//                            response.sendRedirect("sucessoComRestricao.jsp");
+//                        }
+//                    }
+//                } else {
+//                    response.sendRedirect("sucesso.jsp");
+//                }
             } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");
                 ex.printStackTrace();

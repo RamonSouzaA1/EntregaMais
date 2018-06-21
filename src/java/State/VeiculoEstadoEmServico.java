@@ -32,12 +32,14 @@ public class VeiculoEstadoEmServico implements VeiculoEstado{
 
     @Override
     public String oficina(Veiculo v) {
+        v.setEstado(new VeiculoEstadoOficina());
         return "Não é possível executar função.";
         
     }
 
     @Override
     public String emDesuso(Veiculo v) {
+        v.setEstado(new VeiculoEstadoEmDesuso());
         return "Não é possível executar função.";
         
     }
