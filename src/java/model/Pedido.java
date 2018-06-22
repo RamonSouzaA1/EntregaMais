@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.util.List;
+
 /**
  *
  * @author victor.domingos
@@ -13,10 +15,37 @@ public class Pedido {
 
     int id;
     String dataPedido;
-    String valorPedido;
+    float valorPedido;
     String hora;
 
-    public Pedido(int id, String dataPedido, String valorPedido, String hora) {
+    private float massaPizza = 2;
+    
+    List<Item> itens;
+    
+    Pedido com(int quantidade, String nome) {
+	itens.add(new Item(nome, quantidade));
+	return this;
+    }
+    
+    void fechar() {
+        this.setValorPedido(massaPizza);
+        for(Item item : itens){
+            this.setValorPedido(valorPedido+(item.getQtd()*retornaPrecos(item.getOp())));
+        }
+    }
+    
+    private float retornaPrecos(String produto){
+        switch(produto){
+            case "bacon":
+                return 2;
+            case "tomate":
+                return (float) 1.5;
+            default:
+                return 1;
+        }
+    }
+    
+    public Pedido(int id, String dataPedido, float valorPedido, String hora) {
         this.id = id;
         this.dataPedido = dataPedido;
         this.valorPedido = valorPedido;
@@ -30,7 +59,7 @@ public class Pedido {
         this.id = id;
     }
 
-    public Pedido(String hora, String dataPedido, String valorPedido) {
+    public Pedido(String hora, String dataPedido, float valorPedido) {
         this.hora = hora;
         this.dataPedido = dataPedido;
         this.valorPedido = valorPedido;
@@ -53,11 +82,11 @@ public class Pedido {
         this.dataPedido = dataPedido;
     }
 
-    public String getValorPedido() {
+    public float getValorPedido() {
         return valorPedido;
     }
 
-    public void setValorPedido(String valorPedido) {
+    public void setValorPedido(float valorPedido) {
         this.valorPedido = valorPedido;
     }
 
