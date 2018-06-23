@@ -25,7 +25,7 @@ public class EditarClienteAction implements Action {
     @Override
     public void execute(HttpServletRequest request,
             HttpServletResponse response) throws IOException {
-        int id = Integer.parseInt(request.getParameter("txtId"));
+        int id = Integer.parseInt(request.getParameter("idCliente"));
         String nome = request.getParameter("txtNome");
         String logradouro = request.getParameter("txtLogradouro");
         int numero = Integer.parseInt(request.getParameter("txtNumero"));

@@ -27,13 +27,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.jsp">Entrega Mais</a>
+                    <a class="navbar-brand" href="clienteLogadoMenu.jsp">Entrega Mais</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li><input type="number" required="" name="idCliente" value="${cliente.id}" readonly/></li>
                         <li><input type="text" required="" name="nome" value="${cliente.nome}" readonly/></li>
-                        <li><a href="index.jsp">Início</a></li>
+                        <li><a href="clienteLogadoMenu.jsp">Início</a></li>
                     </ul>
                 </div>
             </div>
