@@ -39,10 +39,19 @@
             </div>
         </nav>
         <form action="FrontController?action=PrepararEditarCliente" method="post">
-            <input type="number" required="" name="idCliente" value="${cliente.id}" invisible/>
-            <input type="text" required="" name="nome" value="${cliente.nome}" invisible/>
+            <input type="hidden" required="" name="idCliente" value="${cliente.id}" />
+            <input type="hidden" required="" name="nome" value="${cliente.nome}" />
             <button  class="btn btn-primary" >Editar meus dados pessoais</button>
         </form>
-
+        <form action="FrontController?action=PrepararPedidoCliente" method="post">
+            <input type="hidden" required="" name="idCliente" value="${cliente.id}" />
+            <input type="hidden" required="" name="nome" value="${cliente.nome}" />
+            <button  class="btn btn-primary" >Fazer Pedido</button>
+        </form>
+        <form action="FrontController?action=PrepararHistoricoCliente" method="post">
+            <input type="hidden" required="" name="idCliente" value="${cliente.id}" />
+            <input type="hidden" required="" name="nome" value="${cliente.nome}" />
+            <button  class="btn btn-primary" >Ver Pedidos Anteriores</button>
+        </form>
     </body>
 </html>

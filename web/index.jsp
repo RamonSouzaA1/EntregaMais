@@ -53,19 +53,10 @@
                     <div class="col-md-12">      
                         <button class="btn btn-primary" onclick="window.location.href = 'clienteAdicionar.jsp'">Cadastrar cliente</button>
                         <hr>
-                        <button class="btn btn-primary" onclick="window.location.href='clienteLogin.jsp'">Login cliente</button>
+                        <button class="btn btn-primary" onclick="window.location.href = 'clienteLogin.jsp'">Login Cliente</button>
                         <hr>
-                        <form action="FrontController?action=LoginFuncionario" method="post">
-                            <button>Login Funcionario </button>
-                        </form>
                         <hr>
-                        <form action="FrontController?action=LerFuncionario" method="post">
-                            <button class="btn btn-success medio">Funcionario</button>
-                        </form>
-                        <hr>
-                        <form action="FrontController?action=LerVeiculo" method="post">
-                            <button class="btn btn-success medio">Veiculo</button>
-                        </form>
+                        <button class="btn btn-primary" onclick="window.location.href = 'funcionarioMenu.jsp'">Area Restrita</button>
                         <hr>
                     </div>      
             </div> 

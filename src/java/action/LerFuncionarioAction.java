@@ -23,21 +23,20 @@ import persistence.FuncionarioDAO;
  *
  * @author victor.domingos
  */
-public class LerFuncionarioAction implements Action{
-    
+public class LerFuncionarioAction implements Action {
+
     public void execute(HttpServletRequest request,
-            HttpServletResponse response) throws IOException{
-            try{
-                List<Funcionario> funcionarios = new ArrayList<Funcionario>();
-                funcionarios = FuncionarioDAO.getInstance().obterFuncionarios();
-                request.setAttribute("funcionarios", funcionarios);
-                RequestDispatcher view = request.getRequestDispatcher("funcionarioConsulta.jsp");
-                view.forward(request, response);
-            } catch(SQLException ex)
-            {
-                response.sendRedirect("erro.jsp");
-                ex.printStackTrace();
-            } catch (ClassNotFoundException ex) {
+            HttpServletResponse response) throws IOException {
+        try {
+            List<Funcionario> funcionarios = new ArrayList<Funcionario>();
+            funcionarios = FuncionarioDAO.getInstance().obterFuncionarios();
+            request.setAttribute("funcionarios", funcionarios);
+            RequestDispatcher view = request.getRequestDispatcher("funcionarioConsulta.jsp");
+            view.forward(request, response);
+        } catch (SQLException ex) {
+            response.sendRedirect("erro.jsp");
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         } catch (ServletException ex) {
             Logger.getLogger(LerFuncionarioAction.class.getName()).log(Level.SEVERE, null, ex);

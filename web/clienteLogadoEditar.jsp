@@ -40,7 +40,7 @@
             <h3 class="page-header">Editar Cliente</h3>
 
             <form action="FrontController?action=EditarCliente" method="post">
-                <input type="number" required="" name="idCliente" value="${cliente.id}" readonly/>
+                <input type="hidden" required="" name="idCliente" value="${cliente.id}"/>
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="campo1">Nome</label>

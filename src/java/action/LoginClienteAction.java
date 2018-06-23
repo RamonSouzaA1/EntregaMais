@@ -25,12 +25,9 @@ public class LoginClienteAction implements Action {
         } else {
             try {
                 // Crio o arraylist de clientes e o objeto cliente
-                List<Cliente> clientes = new ArrayList<Cliente>();
+                List<Cliente> clientes = ClienteDAO.getInstance().obterClientes();
                 Cliente cliente = new Cliente();
                 int id;
-
-                // Carrego o arraylist com os clientes que existem
-                clientes = ClienteDAO.getInstance().obterClientes();
 
                 // percorre o arraylist de clientes procurando pelo nome
                 for (int i = 0; i < clientes.size(); i++) {
