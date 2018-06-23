@@ -15,35 +15,33 @@ import persistence.VeiculoDAO;
  *
  * @author victor.domingos
  */
-
 public class GravarVeiculoAction implements Action {
 
     public GravarVeiculoAction() {
 
     }
-    
+
     public void execute(HttpServletRequest request,
-            HttpServletResponse response) throws IOException{
+            HttpServletResponse response) throws IOException {
         String placa = request.getParameter("txtPlaca");
         String marca = request.getParameter("txtMarca");
         String modelo = request.getParameter("txtModelo");
         String nomeFuncionario = request.getParameter("txtNomeFuncionario");
-        if(placa.equals("")){
+        if (placa.equals("")) {
             response.sendRedirect("index.jsp");
-        } else{
-            try{
-                
+        } else {
+            try {
+
                 Veiculo veiculo = new Veiculo(placa, marca, modelo);
-                
+
                 VeiculoDAO.getInstance().save(veiculo);
                 response.sendRedirect("sucesso.jsp");
-            } catch(SQLException ex)
-            {
+            } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");
                 ex.printStackTrace();
             } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-        }
+                ex.printStackTrace();
+            }
         }
     }
 }

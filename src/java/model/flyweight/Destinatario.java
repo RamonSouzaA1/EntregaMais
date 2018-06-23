@@ -10,12 +10,12 @@ package model.flyweight;
  * @author rwspa
  */
 public class Destinatario {
+
     String nome, email;
-    
-    public Destinatario(String nome, String email){
+
+    public Destinatario(String nome, String email) {
         this.nome = nome;
         this.email = email;
     }
-    
-    
+
 }

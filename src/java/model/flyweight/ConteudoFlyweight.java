@@ -10,5 +10,6 @@ package model.flyweight;
  * @author rwspa
  */
 public abstract class ConteudoFlyweight {
+
     public abstract String enviarMensagem(Destinatario dest);
 }

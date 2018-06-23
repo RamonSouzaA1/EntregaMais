@@ -19,20 +19,20 @@ public class Pedido {
     String hora;
 
     private float massaPizza = 2;
-    
+
     List<Item> itens;
-    
+
     public void adicionarItem(Item item) {
-	itens.add(item);
+        itens.add(item);
     }
-    
+
     public void fechar() {
         this.setValorPedido(massaPizza);
-        for(Item item : itens){
-            this.setValorPedido(valorPedido+item.getValor());
+        for (Item item : itens) {
+            this.setValorPedido(valorPedido + item.getValor());
         }
     }
-    
+
     public Pedido(int id, String dataPedido, float valorPedido, String hora) {
         this.id = id;
         this.dataPedido = dataPedido;
@@ -51,7 +51,7 @@ public class Pedido {
         this.hora = hora;
         this.dataPedido = dataPedido;
         this.valorPedido = valorPedido;
-        
+
     }
 
     public int getId() {

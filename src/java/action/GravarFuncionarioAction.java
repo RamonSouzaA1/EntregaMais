@@ -20,11 +20,11 @@ import persistence.FuncionarioDAO;
 public class GravarFuncionarioAction implements Action {
 
     public GravarFuncionarioAction() {
-    
+
     }
-    
+
     public void execute(HttpServletRequest request,
-            HttpServletResponse response) throws IOException{
+            HttpServletResponse response) throws IOException {
         String nome = request.getParameter("txtNome");
         String logradouro = request.getParameter("txtLogradouro");
         int numero = Integer.parseInt(request.getParameter("txtNumero"));
@@ -33,20 +33,19 @@ public class GravarFuncionarioAction implements Action {
         String telefone = request.getParameter("txtTelefone");
         String celular = request.getParameter("txtCelular");
         String cpf = request.getParameter("txtCpf");
-        if(nome.equals("")){
+        if (nome.equals("")) {
             response.sendRedirect("index.jsp");
-        } else{
-            try{
+        } else {
+            try {
                 Funcionario funcionario = new Funcionario(nome, logradouro, numero, bairro, cep, telefone, celular, cpf);
                 FuncionarioDAO.getInstance().save(funcionario);
                 response.sendRedirect("sucesso.jsp");
-            } catch(SQLException ex)
-            {
+            } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");
                 ex.printStackTrace();
             } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-        }
+                ex.printStackTrace();
+            }
         }
     }
 }

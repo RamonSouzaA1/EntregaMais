@@ -12,14 +12,14 @@ import model.*;
  * @author victor.domingos
  */
 public interface VeiculoEstado {
-    
+
     public String getEstado();
-    
+
     public String disponivel(Veiculo v);
-    
+
     public String emServico(Veiculo v);
-    
+
     public String oficina(Veiculo v);
-    
+
     public String emDesuso(Veiculo v);
 }

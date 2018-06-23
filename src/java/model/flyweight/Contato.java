@@ -10,13 +10,14 @@ package model.flyweight;
  * @author rwspa
  */
 class Contato {
+
     protected String conteudo;
-    
-    public Contato(String contato){
+
+    public Contato(String contato) {
         this.conteudo = contato;
     }
-    
-    public String enviarMensagem(){
+
+    public String enviarMensagem() {
         return conteudo + "!";
     }
 }

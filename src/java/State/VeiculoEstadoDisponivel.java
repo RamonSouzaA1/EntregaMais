@@ -11,7 +11,7 @@ import model.*;
  *
  * @author victor.domingos
  */
-public class VeiculoEstadoDisponivel implements VeiculoEstado{
+public class VeiculoEstadoDisponivel implements VeiculoEstado {
 
     @Override
     public String getEstado() {
@@ -40,5 +40,5 @@ public class VeiculoEstadoDisponivel implements VeiculoEstado{
         v.setEstado(new VeiculoEstadoEmDesuso());
         return "Veículo está em desuso";
     }
-    
+
 }

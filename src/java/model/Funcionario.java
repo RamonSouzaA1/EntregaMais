@@ -10,6 +10,7 @@ package model;
  * @author victor.domingos
  */
 public class Funcionario {
+
     protected int id;
     protected String nome;
     protected String logradouro;
@@ -37,7 +38,7 @@ public class Funcionario {
     }
 
     public Funcionario(String nome, String logradouro, int numero, String bairro, String cep, String telefone, String celular, String cpf) {
-        
+
         this.nome = nome;
         this.logradouro = logradouro;
         this.numero = numero;
@@ -56,7 +57,6 @@ public class Funcionario {
         this.cpf = cpf;
     }
 
-    
     public Funcionario() {
     }
 
@@ -123,7 +123,5 @@ public class Funcionario {
     public void setCelular(String celular) {
         this.celular = celular;
     }
-    
-    
-    
+
 }

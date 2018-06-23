@@ -17,9 +17,9 @@ import persistence.PedidoDAO;
  *
  * @author victor.domingos
  */
-public class ApagarPedidoAction implements Action{
-    
-    public ApagarPedidoAction(){
+public class ApagarPedidoAction implements Action {
+
+    public ApagarPedidoAction() {
     }
 
     /**

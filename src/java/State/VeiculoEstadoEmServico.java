@@ -11,7 +11,7 @@ import model.*;
  *
  * @author victor.domingos
  */
-public class VeiculoEstadoEmServico implements VeiculoEstado{
+public class VeiculoEstadoEmServico implements VeiculoEstado {
 
     @Override
     public String getEstado() {
@@ -27,21 +27,21 @@ public class VeiculoEstadoEmServico implements VeiculoEstado{
     @Override
     public String emServico(Veiculo v) {
         return "Não é possível executar função.";
-        
+
     }
 
     @Override
     public String oficina(Veiculo v) {
         v.setEstado(new VeiculoEstadoOficina());
         return "Não é possível executar função.";
-        
+
     }
 
     @Override
     public String emDesuso(Veiculo v) {
         v.setEstado(new VeiculoEstadoEmDesuso());
         return "Não é possível executar função.";
-        
+
     }
-    
+
 }

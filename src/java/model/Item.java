@@ -10,11 +10,12 @@ package model;
  * @author rwspa
  */
 public class Item {
+
     private String op;
     private float valor;
-    
-    public Item(){
-        
+
+    public Item() {
+
     }
 
     public Item(String op) {
@@ -35,9 +36,9 @@ public class Item {
     public void setOp(String op) {
         this.op = op;
     }
-    
-    private float retornaPrecos(String produto){
-        switch(produto){
+
+    private float retornaPrecos(String produto) {
+        switch (produto) {
             case "bacon":
                 return 2;
             case "tomate":

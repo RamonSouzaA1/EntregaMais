@@ -22,8 +22,6 @@ public class Veiculo extends Observable {
     private String modelo;
     public VeiculoEstado estado;
     public String nomeFuncionario;
-    
-    
 
     public Veiculo() {
     }
@@ -87,7 +85,7 @@ public class Veiculo extends Observable {
         this.modelo = modelo;
         this.estado = new VeiculoEstadoDisponivel();
     }
-    
+
     public String getNomeFuncionario() {
         return nomeFuncionario;
     }
@@ -158,7 +156,7 @@ public class Veiculo extends Observable {
         switch (estado) {
             case "Disponível":
                 this.disponivel(v);
-                
+
                 break;
             case "Em desuso":
                 this.emDesuso(v);

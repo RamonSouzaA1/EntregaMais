@@ -50,13 +50,13 @@
                             <td><c:out value="${veiculo.marca}"></c:out></td>
                             <td><c:out value="${veiculo.modelo}"></c:out></td>
                             <td><c:out value="${veiculo.estado.getEstado()}"></c:out></td>
-                            
-                        </tr>
+
+                            </tr>
                     </c:forEach>
                 </table>
 
             </div>
-            
+
             <div id="actions" class="row">
                 <div class="col-md-12">
                     <a href="veiculoAdicionar.jsp" class="btn btn-primary">Adicionar</a>

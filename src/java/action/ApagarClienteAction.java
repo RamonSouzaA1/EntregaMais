@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 import model.Cliente;
 import persistence.ClienteDAO;
 
-public class ApagarClienteAction implements Action{
-    
-    public ApagarClienteAction(){
+public class ApagarClienteAction implements Action {
+
+    public ApagarClienteAction() {
     }
 
     /**

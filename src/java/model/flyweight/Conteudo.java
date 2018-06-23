@@ -9,17 +9,17 @@ package model.flyweight;
  *
  * @author rwspa
  */
-class Conteudo extends ConteudoFlyweight{
+class Conteudo extends ConteudoFlyweight {
+
     protected Contato contato;
-    
-    public Conteudo(String conteudoDoEmail){
+
+    public Conteudo(String conteudoDoEmail) {
         this.contato = new Contato(conteudoDoEmail);
     }
-    
+
     @Override
     public String enviarMensagem(Destinatario dest) {
         return contato.enviarMensagem() + "Para o destinatario (" + dest.nome + "," + dest.email + ")!";
     }
 
-    
 }

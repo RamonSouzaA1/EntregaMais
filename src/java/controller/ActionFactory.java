@@ -1,7 +1,8 @@
 package controller;
 
 public class ActionFactory {
-    public static Action create(String action){
+
+    public static Action create(String action) {
         Action actionObject = null;
         String nomeClasse = "action." + action + "Action";
         Class classe = null;
@@ -12,7 +13,9 @@ public class ActionFactory {
         } catch (Exception ex) {
             return null;
         }
-        if(!(objeto instanceof Action)) return null;
+        if (!(objeto instanceof Action)) {
+            return null;
+        }
         actionObject = (Action) objeto;
         return actionObject;
     }

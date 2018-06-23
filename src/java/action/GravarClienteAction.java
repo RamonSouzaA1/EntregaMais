@@ -13,11 +13,11 @@ import persistence.ClienteDAO;
 public class GravarClienteAction implements Action {
 
     public GravarClienteAction() {
-    
+
     }
-    
+
     public void execute(HttpServletRequest request,
-            HttpServletResponse response) throws IOException{
+            HttpServletResponse response) throws IOException {
         String nome = request.getParameter("txtNome");
         String logradouro = request.getParameter("txtLogradouro");
         int numero = Integer.parseInt(request.getParameter("txtNumero"));
@@ -26,20 +26,19 @@ public class GravarClienteAction implements Action {
         String telefone = request.getParameter("txtTelefone");
         String celular = request.getParameter("txtCelular");
         String cpf = request.getParameter("txtCpf");
-        if(nome.equals("")){
+        if (nome.equals("")) {
             response.sendRedirect("index.jsp");
-        } else{
-            try{
+        } else {
+            try {
                 Cliente cliente = new Cliente(nome, logradouro, numero, bairro, cep, telefone, celular, cpf);
                 ClienteDAO.getInstance().save(cliente);
                 response.sendRedirect("sucesso.jsp");
-            } catch(SQLException ex)
-            {
+            } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");
                 ex.printStackTrace();
             } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-        }
+                ex.printStackTrace();
+            }
         }
     }
 }

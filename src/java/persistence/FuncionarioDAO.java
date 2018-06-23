@@ -19,15 +19,16 @@ import model.Funcionario;
  * @author victor.domingos
  */
 public class FuncionarioDAO {
+
     private static FuncionarioDAO instance = new FuncionarioDAO();
-    
-    public FuncionarioDAO(){
+
+    public FuncionarioDAO() {
     }
-    
-    public static FuncionarioDAO getInstance(){
+
+    public static FuncionarioDAO getInstance() {
         return instance;
     }
-    
+
     private void closeResources(Connection conn, Statement st) {
         try {
             if (st != null) {
@@ -39,8 +40,7 @@ public class FuncionarioDAO {
         } catch (SQLException e) {
         }
     }
-    
-    
+
     public void save(Funcionario funcionario) throws SQLException,
             ClassNotFoundException {
         Connection conn = null;
@@ -48,41 +48,40 @@ public class FuncionarioDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            
+
             st.execute("insert into funcionario (nome, logradouro, numero, bairro, cep, telefone, celular, cpf)"
-                    + " values ('" + funcionario.getNome() + "', '"+ funcionario.getLogradouro() +"', "+ funcionario.getNumero() +", '"+ funcionario.getBairro() +"',"
-                    + " '"+ funcionario.getCep() +"', '"+ funcionario.getTelefone() +"', '"+ funcionario.getCelular() +"', '"+ funcionario.getCpf()+"')");
-                        
+                    + " values ('" + funcionario.getNome() + "', '" + funcionario.getLogradouro() + "', " + funcionario.getNumero() + ", '" + funcionario.getBairro() + "',"
+                    + " '" + funcionario.getCep() + "', '" + funcionario.getTelefone() + "', '" + funcionario.getCelular() + "', '" + funcionario.getCpf() + "')");
+
         } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
-    }  
-    
-    public List<Funcionario> obterFuncionarios() throws ClassNotFoundException, SQLException{
+    }
+
+    public List<Funcionario> obterFuncionarios() throws ClassNotFoundException, SQLException {
         Connection conn = null;
         Statement st = null;
         List<Funcionario> funcionarios = new ArrayList<Funcionario>();
-        try{
+        try {
             conn = DatabaseLocator.getInstance().getConnection();
-            st = conn.createStatement();    
+            st = conn.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM funcionario");
-            while (rs.next()){
-                Funcionario funcionario = new Funcionario
-                                    (rs.getInt("id"), rs.getString("nome"), rs.getString("logradouro"), rs.getInt("numero"),
-                                    rs.getString("bairro"), rs.getString("cep"), rs.getString("telefone"),rs.getString("celular"),
-                                    rs.getString("cpf"));
+            while (rs.next()) {
+                Funcionario funcionario = new Funcionario(rs.getInt("id"), rs.getString("nome"), rs.getString("logradouro"), rs.getInt("numero"),
+                        rs.getString("bairro"), rs.getString("cep"), rs.getString("telefone"), rs.getString("celular"),
+                        rs.getString("cpf"));
                 funcionarios.add(funcionario);
             }
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
         return funcionarios;
     }
-    
+
     public void delete(Funcionario funcionario) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -96,29 +95,28 @@ public class FuncionarioDAO {
             closeResources(conn, st);
         }
     }
-    
-    public   Funcionario obterFuncionario(int id) throws ClassNotFoundException, SQLException {
+
+    public Funcionario obterFuncionario(int id) throws ClassNotFoundException, SQLException {
         Connection conn = null;
         Statement st = null;
         Funcionario funcionario = null;
-        try{
+        try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
             ResultSet rs = st.executeQuery("select * from funcionario where id = " + id);
             rs.first();
-            funcionario = new Funcionario
-                          (rs.getInt("id"), rs.getString("nome"), rs.getString("logradouro"), rs.getInt("numero"),
-                            rs.getString("bairro"), rs.getString("cep"), rs.getString("telefone"),rs.getString("celular"),
-                            rs.getString("cpf"));
-            
-        }catch (SQLException e) {
+            funcionario = new Funcionario(rs.getInt("id"), rs.getString("nome"), rs.getString("logradouro"), rs.getInt("numero"),
+                    rs.getString("bairro"), rs.getString("cep"), rs.getString("telefone"), rs.getString("celular"),
+                    rs.getString("cpf"));
+
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
         return funcionario;
     }
-    
+
     public void editar(Funcionario funcionario, String nome, String logradouro, int numero, String bairro, String cep, String telefone, String celular, String cpf) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -143,5 +141,5 @@ public class FuncionarioDAO {
             closeResources(conn, st);
         }
     }
-    
+
 }

@@ -28,11 +28,15 @@ public class EditarPedidoAction implements Action {
             HttpServletResponse response) throws IOException {
         int id = Integer.parseInt(request.getParameter("txtId"));
         String dataPedido = request.getParameter("txtDataPedido");
-        
-        boolean bacon = request.getParameter("bacon");
-        boolean tomate = request.getParameter("tomate");
-        boolean peperone = request.getParameter("peperone");
-        
+
+        String chkbacon = request.getParameter("bacon");
+        String chktomate = request.getParameter("tomate");
+        String chkpeperone = request.getParameter("peperone");
+
+        boolean bacon = chkbacon.isEmpty();
+        boolean tomate = chktomate.isEmpty();
+        boolean peperone = chkpeperone.isEmpty();
+
         Float valorPedido;
         String hora = request.getParameter("txtHora");
 
@@ -42,16 +46,19 @@ public class EditarPedidoAction implements Action {
             try {
                 PedidoDAO pedidoDAO = new PedidoDAO();
                 Pedido pedido = new Pedido();
-                
-                if(bacon)
+
+                if (!bacon) {
                     pedido.adicionarItem(new Item("bacon"));
-                if(tomate)
+                }
+                if (!tomate) {
                     pedido.adicionarItem(new Item("tomate"));
-                if(peperone)
+                }
+                if (!peperone) {
                     pedido.adicionarItem(new Item("peperone"));
-                
+                }
+
                 pedido.fechar();
-                
+
                 pedido = pedidoDAO.obterPedido(id);
                 pedidoDAO.editar(pedido, dataPedido, pedido.getValorPedido(), hora);
                 response.sendRedirect("sucesso.jsp");
@@ -64,4 +71,3 @@ public class EditarPedidoAction implements Action {
         }
     }
 }
-

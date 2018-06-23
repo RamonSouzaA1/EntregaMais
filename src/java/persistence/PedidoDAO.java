@@ -19,15 +19,16 @@ import model.Pedido;
  * @author victor.domingos
  */
 public class PedidoDAO {
+
     private static PedidoDAO instance = new PedidoDAO();
-    
-    public PedidoDAO(){
+
+    public PedidoDAO() {
     }
-    
-    public static PedidoDAO getInstance(){
+
+    public static PedidoDAO getInstance() {
         return instance;
     }
-    
+
     private void closeResources(Connection conn, Statement st) {
         try {
             if (st != null) {
@@ -39,7 +40,7 @@ public class PedidoDAO {
         } catch (SQLException e) {
         }
     }
-    
+
     public void save(Pedido pedido) throws SQLException,
             ClassNotFoundException {
         Connection conn = null;
@@ -47,41 +48,38 @@ public class PedidoDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            
+
             st.execute("insert into pedido (hora, dataPedido, valorPedido)"
-                    + " values ('" + pedido.getHora() + "', '"+ pedido.getDataPedido() +"', '"+ pedido.getValorPedido()+"')");
-           
-                        
-                        
+                    + " values ('" + pedido.getHora() + "', '" + pedido.getDataPedido() + "', '" + pedido.getValorPedido() + "')");
+
         } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
     }
-  
-    public List<Pedido> obterPedidos() throws ClassNotFoundException, SQLException{
+
+    public List<Pedido> obterPedidos() throws ClassNotFoundException, SQLException {
         Connection conn = null;
         Statement st = null;
         List<Pedido> pedidos = new ArrayList<Pedido>();
-        try{
+        try {
             conn = DatabaseLocator.getInstance().getConnection();
-            st = conn.createStatement();    
+            st = conn.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM pedido");
-            while (rs.next()){
-                Pedido pedido = new Pedido
-                                    (rs.getInt("id"), rs.getString("dataPedido"), rs.getFloat("valorPedido"),
-                                    rs.getString("hora"));
+            while (rs.next()) {
+                Pedido pedido = new Pedido(rs.getInt("id"), rs.getString("dataPedido"), rs.getFloat("valorPedido"),
+                        rs.getString("hora"));
                 pedidos.add(pedido);
             }
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
         return pedidos;
     }
-    
+
     public void delete(Pedido pedido) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -95,28 +93,27 @@ public class PedidoDAO {
             closeResources(conn, st);
         }
     }
-    
-    public   Pedido obterPedido(int id) throws ClassNotFoundException, SQLException {
+
+    public Pedido obterPedido(int id) throws ClassNotFoundException, SQLException {
         Connection conn = null;
         Statement st = null;
         Pedido pedido = null;
-        try{
+        try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
             ResultSet rs = st.executeQuery("select * from pedido where id = " + id);
             rs.first();
-            pedido = new Pedido
-                          (rs.getInt("id"), rs.getString("dataPedido"), rs.getFloat("valorPedido"),
-                                    rs.getString("hora"));
-            
-        }catch (SQLException e) {
+            pedido = new Pedido(rs.getInt("id"), rs.getString("dataPedido"), rs.getFloat("valorPedido"),
+                    rs.getString("hora"));
+
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
         return pedido;
     }
-    
+
     public void editar(Pedido pedido, String dataPedido, Float valorPedido, String hora) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -136,5 +133,5 @@ public class PedidoDAO {
             closeResources(conn, st);
         }
     }
-    
+
 }

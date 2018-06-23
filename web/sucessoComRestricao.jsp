@@ -32,7 +32,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1 style="text-align: center" class="page-header"><strong>SUCESSO!!</strong></h1>
-					<h1 style="text-align: center" class="page-header"><strong>Mas o campo situação não pode ser alterado para o que foi escolhido.</strong></h1>
+                    <h1 style="text-align: center" class="page-header"><strong>Mas o campo situação não pode ser alterado para o que foi escolhido.</strong></h1>
                 </div>
             </div>
 

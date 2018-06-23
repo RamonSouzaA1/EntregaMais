@@ -11,7 +11,7 @@ import model.*;
  *
  * @author victor.domingos
  */
-public class VeiculoEstadoEmDesuso implements VeiculoEstado{
+public class VeiculoEstadoEmDesuso implements VeiculoEstado {
 
     @Override
     public String getEstado() {
@@ -37,5 +37,5 @@ public class VeiculoEstadoEmDesuso implements VeiculoEstado{
     public String emDesuso(Veiculo v) {
         return "Não é possível executar função.";
     }
-    
+
 }

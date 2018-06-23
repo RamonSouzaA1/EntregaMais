@@ -23,21 +23,20 @@ import persistence.PedidoDAO;
  *
  * @author victor.domingos
  */
-public class LerPedidoAction implements Action{
-    
+public class LerPedidoAction implements Action {
+
     public void execute(HttpServletRequest request,
-            HttpServletResponse response) throws IOException{
-            try{
-                List<Pedido> pedidos = new ArrayList<Pedido>();
-                pedidos = PedidoDAO.getInstance().obterPedidos();
-                request.setAttribute("pedidos", pedidos);
-                RequestDispatcher view = request.getRequestDispatcher("pedidoConsulta.jsp");
-                view.forward(request, response);
-            } catch(SQLException ex)
-            {
-                response.sendRedirect("erro.jsp");
-                ex.printStackTrace();
-            } catch (ClassNotFoundException ex) {
+            HttpServletResponse response) throws IOException {
+        try {
+            List<Pedido> pedidos = new ArrayList<Pedido>();
+            pedidos = PedidoDAO.getInstance().obterPedidos();
+            request.setAttribute("pedidos", pedidos);
+            RequestDispatcher view = request.getRequestDispatcher("pedidoConsulta.jsp");
+            view.forward(request, response);
+        } catch (SQLException ex) {
+            response.sendRedirect("erro.jsp");
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         } catch (ServletException ex) {
             Logger.getLogger(LerPedidoAction.class.getName()).log(Level.SEVERE, null, ex);

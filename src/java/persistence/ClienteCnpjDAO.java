@@ -19,15 +19,16 @@ import model.ClienteCNPJ;
  * @author Ramon
  */
 public class ClienteCnpjDAO {
+
     private static ClienteCnpjDAO instance = new ClienteCnpjDAO();
-    
-    public ClienteCnpjDAO(){
+
+    public ClienteCnpjDAO() {
     }
-    
-    public static ClienteCnpjDAO getInstance(){
+
+    public static ClienteCnpjDAO getInstance() {
         return instance;
     }
-    
+
     private void closeResources(Connection conn, Statement st) {
         try {
             if (st != null) {
@@ -39,8 +40,7 @@ public class ClienteCnpjDAO {
         } catch (SQLException e) {
         }
     }
-    
-    
+
     public void save(ClienteCNPJ cliente) throws SQLException,
             ClassNotFoundException {
         Connection conn = null;
@@ -48,41 +48,40 @@ public class ClienteCnpjDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            
+
             st.execute("insert into clientecnpj (nome, logradouro, numero, bairro, cep, telefone, celular, cnpj)"
-                    + " values ('" + cliente.getNome() + "', '"+ cliente.getLogradouro() +"', "+ cliente.getNumero() +", '"+ cliente.getBairro() +"',"
-                    + " '"+ cliente.getCep() +"', '"+ cliente.getTelefone() +"', '"+ cliente.getCelular() +"', '"+ cliente.getCnpj() +"')");
-                        
+                    + " values ('" + cliente.getNome() + "', '" + cliente.getLogradouro() + "', " + cliente.getNumero() + ", '" + cliente.getBairro() + "',"
+                    + " '" + cliente.getCep() + "', '" + cliente.getTelefone() + "', '" + cliente.getCelular() + "', '" + cliente.getCnpj() + "')");
+
         } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
-    }  
-    
-    public List<ClienteCNPJ> obterClientes() throws ClassNotFoundException, SQLException{
+    }
+
+    public List<ClienteCNPJ> obterClientes() throws ClassNotFoundException, SQLException {
         Connection conn = null;
         Statement st = null;
         List<ClienteCNPJ> clientes = new ArrayList<ClienteCNPJ>();
-        try{
+        try {
             conn = DatabaseLocator.getInstance().getConnection();
-            st = conn.createStatement();    
+            st = conn.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM clientecnpj");
-            while (rs.next()){
-                ClienteCNPJ cliente = new ClienteCNPJ
-                                    (rs.getInt("id"), rs.getString("nome"), rs.getString("logradouro"), rs.getInt("numero"),
-                                    rs.getString("bairro"), rs.getString("cep"), rs.getString("telefone"),rs.getString("celular"),
-                                    rs.getString("cnpj"));
+            while (rs.next()) {
+                ClienteCNPJ cliente = new ClienteCNPJ(rs.getInt("id"), rs.getString("nome"), rs.getString("logradouro"), rs.getInt("numero"),
+                        rs.getString("bairro"), rs.getString("cep"), rs.getString("telefone"), rs.getString("celular"),
+                        rs.getString("cnpj"));
                 clientes.add(cliente);
             }
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
         return clientes;
     }
-    
+
     public void delete(ClienteCNPJ cliente) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -96,29 +95,28 @@ public class ClienteCnpjDAO {
             closeResources(conn, st);
         }
     }
-    
+
     public ClienteCNPJ obterCliente(int id) throws ClassNotFoundException, SQLException {
         Connection conn = null;
         Statement st = null;
         ClienteCNPJ cliente = null;
-        try{
+        try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
             ResultSet rs = st.executeQuery("select * from clientecnpj where id = " + id);
             rs.first();
-            cliente = new ClienteCNPJ
-                          (rs.getInt("id"), rs.getString("nome"), rs.getString("logradouro"), rs.getInt("numero"),
-                            rs.getString("bairro"), rs.getString("cep"), rs.getString("telefone"),rs.getString("celular"),
-                            rs.getString("cnpj"));
-            
-        }catch (SQLException e) {
+            cliente = new ClienteCNPJ(rs.getInt("id"), rs.getString("nome"), rs.getString("logradouro"), rs.getInt("numero"),
+                    rs.getString("bairro"), rs.getString("cep"), rs.getString("telefone"), rs.getString("celular"),
+                    rs.getString("cnpj"));
+
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
         return cliente;
     }
-    
+
     public void editar(ClienteCNPJ cliente, String nome, String logradouro, int numero, String bairro, String cep, String telefone, String celular, String doc) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -143,5 +141,5 @@ public class ClienteCnpjDAO {
             closeResources(conn, st);
         }
     }
-    
+
 }

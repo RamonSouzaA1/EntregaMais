@@ -30,14 +30,15 @@ public class FrontController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("action");
-        Action actionObject=null;
-        if(action==null || action.equals(""))
+        Action actionObject = null;
+        if (action == null || action.equals("")) {
             response.sendRedirect("index.jsp");
-        actionObject=ActionFactory.create(action);
-        if(actionObject!=null)
+        }
+        actionObject = ActionFactory.create(action);
+        if (actionObject != null) {
             actionObject.execute(request, response);
         }
-
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

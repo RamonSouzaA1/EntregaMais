@@ -12,10 +12,9 @@ import persistence.VeiculoDAO;
  *
  * @author victor.domingos
  */
+public class ApagarVeiculoAction implements Action {
 
-public class ApagarVeiculoAction implements Action{
-    
-    public ApagarVeiculoAction(){
+    public ApagarVeiculoAction() {
     }
 
     /**

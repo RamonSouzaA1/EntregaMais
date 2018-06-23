@@ -13,9 +13,9 @@ import model.Cliente;
  */
 public class ServidorEmail {
 
-    public String Anuncia(String conteudo, Cliente cliente){
+    public String Anuncia(String conteudo, Cliente cliente) {
         FlyweightFactory factory = new FlyweightFactory();
-        return factory.getFlyweight(factory.selecionaConteudo(conteudo)).enviarMensagem(new Destinatario(cliente.getNome(),cliente.getCelular()));
+        return factory.getFlyweight(factory.selecionaConteudo(conteudo)).enviarMensagem(new Destinatario(cliente.getNome(), cliente.getCelular()));
     }
-    
+
 }

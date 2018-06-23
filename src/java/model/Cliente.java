@@ -8,13 +8,13 @@ package model;
 /**
  *
  * @author Ramon
- * 
- * Construtor vazio, somente com id e com todos os atributos.
- * Todos os getters e setters implementados
- * 
+ *
+ * Construtor vazio, somente com id e com todos os atributos. Todos os getters e
+ * setters implementados
+ *
  */
-public class Cliente extends BaseCliente{
-    
+public class Cliente extends BaseCliente {
+
     private String cpf;
 
     public String getCpf() {
@@ -24,7 +24,7 @@ public class Cliente extends BaseCliente{
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-    
+
     public Cliente() {
     }
 

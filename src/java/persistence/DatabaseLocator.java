@@ -14,7 +14,7 @@ import java.sql.SQLException;
  * @author Ramon
  */
 public class DatabaseLocator {
-    
+
     private static DatabaseLocator instance = new DatabaseLocator();
 
     public static DatabaseLocator getInstance() {
@@ -23,11 +23,11 @@ public class DatabaseLocator {
 
     private DatabaseLocator() {
     }
-    
+
     public Connection getConnection() throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/delivery", "root", "");
         return conn;
-}
-     
+    }
+
 }

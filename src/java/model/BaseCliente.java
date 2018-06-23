@@ -10,6 +10,7 @@ package model;
  * @author Ramon
  */
 public abstract class BaseCliente {
+
     protected int id;
     protected String nome;
     protected String logradouro;
@@ -18,7 +19,7 @@ public abstract class BaseCliente {
     protected String cep;
     protected String telefone;
     protected String celular;
-    
+
     public int getId() {
         return id;
     }

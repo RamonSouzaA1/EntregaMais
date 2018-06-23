@@ -52,8 +52,7 @@ public class EditarVeiculoAction implements Action {
                     case "Em desuso":
                         if (veiculo.estado.getEstado().equals("Em desuso")) {
                             response.sendRedirect("sucessoComRestricao.jsp");
-                        }                         
-                        else {
+                        } else {
                             veiculoDAO.editar(veiculo, placa, marca, modelo, situacao);
                             response.sendRedirect("sucesso.jsp");
                         }
@@ -68,7 +67,7 @@ public class EditarVeiculoAction implements Action {
                         break;
                     case "Oficina":
 
-                        if (veiculo.estado.getEstado().equals("Oficina")|| veiculo.estado.getEstado().equals("Em desuso")) {
+                        if (veiculo.estado.getEstado().equals("Oficina") || veiculo.estado.getEstado().equals("Em desuso")) {
                             response.sendRedirect("sucessoComRestricao.jsp");
                         } else {
                             veiculoDAO.editar(veiculo, placa, marca, modelo, situacao);

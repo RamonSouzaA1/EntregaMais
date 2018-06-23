@@ -18,23 +18,21 @@ import persistence.VeiculoDAO;
  *
  * @author victor.domingos
  */
+public class LerVeiculoAction implements Action {
 
-public class LerVeiculoAction implements Action{
-    
     public void execute(HttpServletRequest request,
-            HttpServletResponse response) throws IOException{
-            try{
-                List<Veiculo> veiculos = new ArrayList<Veiculo>();
-                veiculos = VeiculoDAO.getInstance().obterVeiculos();
-                request.setAttribute("veiculos", veiculos);
+            HttpServletResponse response) throws IOException {
+        try {
+            List<Veiculo> veiculos = new ArrayList<Veiculo>();
+            veiculos = VeiculoDAO.getInstance().obterVeiculos();
+            request.setAttribute("veiculos", veiculos);
 
-                RequestDispatcher view = request.getRequestDispatcher("veiculoConsulta.jsp");
-                view.forward(request, response);
-            } catch(SQLException ex)
-            {
-                response.sendRedirect("erro.jsp");
-                ex.printStackTrace();
-            } catch (ClassNotFoundException ex) {
+            RequestDispatcher view = request.getRequestDispatcher("veiculoConsulta.jsp");
+            view.forward(request, response);
+        } catch (SQLException ex) {
+            response.sendRedirect("erro.jsp");
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         } catch (ServletException ex) {
             Logger.getLogger(LerVeiculoAction.class.getName()).log(Level.SEVERE, null, ex);

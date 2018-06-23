@@ -17,9 +17,9 @@ import persistence.FuncionarioDAO;
  *
  * @author victor.domingos
  */
-public class ApagarFuncionarioAction implements Action{
-    
-    public ApagarFuncionarioAction(){
+public class ApagarFuncionarioAction implements Action {
+
+    public ApagarFuncionarioAction() {
     }
 
     /**
@@ -47,4 +47,3 @@ public class ApagarFuncionarioAction implements Action{
         }
     }
 }
-

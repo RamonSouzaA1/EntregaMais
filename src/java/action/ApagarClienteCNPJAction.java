@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 import model.ClienteCNPJ;
 import persistence.ClienteCnpjDAO;
 
-public class ApagarClienteCNPJAction implements Action{
-    
-    public ApagarClienteCNPJAction(){
+public class ApagarClienteCNPJAction implements Action {
+
+    public ApagarClienteCNPJAction() {
     }
 
     /**

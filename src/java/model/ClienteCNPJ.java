@@ -9,8 +9,8 @@ package model;
  *
  * @author Ramon
  */
-public class ClienteCNPJ extends BaseCliente{
-    
+public class ClienteCNPJ extends BaseCliente {
+
     private String cnpj;
 
     public String getCnpj() {
@@ -20,7 +20,7 @@ public class ClienteCNPJ extends BaseCliente{
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
-    
+
     public ClienteCNPJ() {
     }
 
