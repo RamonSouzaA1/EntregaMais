@@ -43,7 +43,7 @@ public class LoginClienteAction implements Action {
                 if (cliente != null) {
                     // se encontrado o cliente, ele vai ser dispachado para a tela seguinte no objeto cliente
                     request.setAttribute("cliente", cliente);
-                    RequestDispatcher view = request.getRequestDispatcher("clienteMenu.jsp");
+                    RequestDispatcher view = request.getRequestDispatcher("clienteLogadoMenu.jsp");
                     view.forward(request, response);
                 } else {
                     response.sendRedirect("erro.jsp");

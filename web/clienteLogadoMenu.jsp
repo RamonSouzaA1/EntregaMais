@@ -1,4 +1,12 @@
+<%-- 
+    Document   : clienteLogadoMenu
+    Created on : 23/06/2018, 15:26:34
+    Author     : Ramon
+--%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,7 +15,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-        <title>Menu - Cliente</title>
+        <title>Menu Cliente</title>
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -19,31 +27,22 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">DPDelivery</a>
+                    <a class="navbar-brand" href="index.jsp">Entrega Mais</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
+                        <li><input type="number" required="" name="idCliente" value="${cliente.id}" readonly/></li>
+                        <li><input type="text" required="" name="nome" value="${cliente.nome}" readonly/></li>
                         <li><a href="index.jsp">Início</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <div id="main" class="container-fluid">
-            <h3 class="page-header">Menu Clientes</h3>
+        <form action="FrontController?action=PrepararEditarCliente" method="post">
+            <input type="number" required="" name="idCliente" value="${cliente.id}" invisible/>
+            <input type="text" required="" name="nome" value="${cliente.nome}" invisible/>
+            <button  class="btn btn-primary" >Editar meus dados pessoais</button>
+        </form>
 
-            <div class="row">
-                <div class="col-md-12">
-
-                    <button class="btn btn-primary" onclick="window.location.href = 'clienteAdicionar.jsp'">Adicionar cliente</button>
-                    <form action="FrontController?action=LerCliente" method="post">
-                        <button  class="btn btn-primary" >Consultar Clientes </button>
-                    </form>
-                    <button class="btn btn-primary" onclick="window.location.href = 'clienteApagar.jsp'">Apagar cliente</button>
-                    <button class="btn btn-primary" onclick="window.location.href = 'clienteEditar.jsp'">Editar cliente</button>
-                </div>
-            </div>
-        </div>
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-    </body>    
+    </body>
 </html>
