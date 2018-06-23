@@ -11,15 +11,15 @@ package model;
  */
 public class Item {
     private String op;
-    private int qtd;
+    private float valor;
     
     public Item(){
         
     }
 
-    public Item(String op, int qtd) {
+    public Item(String op) {
         this.op = op;
-        this.qtd = qtd;
+        this.setValor(this.retornaPrecos(op));
     }
 
     /**
@@ -35,20 +35,29 @@ public class Item {
     public void setOp(String op) {
         this.op = op;
     }
-
-    /**
-     * @return the qtd
-     */
-    public int getQtd() {
-        return qtd;
+    
+    private float retornaPrecos(String produto){
+        switch(produto){
+            case "bacon":
+                return 2;
+            case "tomate":
+                return (float) 1.5;
+            default:
+                return 1;
+        }
     }
 
     /**
-     * @param qtd the qtd to set
+     * @return the valor
      */
-    public void setQtd(int qtd) {
-        this.qtd = qtd;
+    public float getValor() {
+        return valor;
     }
-    
-    
+
+    /**
+     * @param valor the valor to set
+     */
+    public void setValor(float valor) {
+        this.valor = valor;
+    }
 }

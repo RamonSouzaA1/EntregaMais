@@ -70,7 +70,7 @@ public class PedidoDAO {
             ResultSet rs = st.executeQuery("SELECT * FROM pedido");
             while (rs.next()){
                 Pedido pedido = new Pedido
-                                    (rs.getInt("id"), rs.getString("dataPedido"), rs.getString("valorPedido"),
+                                    (rs.getInt("id"), rs.getString("dataPedido"), rs.getFloat("valorPedido"),
                                     rs.getString("hora"));
                 pedidos.add(pedido);
             }
@@ -106,7 +106,7 @@ public class PedidoDAO {
             ResultSet rs = st.executeQuery("select * from pedido where id = " + id);
             rs.first();
             pedido = new Pedido
-                          (rs.getInt("id"), rs.getString("dataPedido"), rs.getString("valorPedido"),
+                          (rs.getInt("id"), rs.getString("dataPedido"), rs.getFloat("valorPedido"),
                                     rs.getString("hora"));
             
         }catch (SQLException e) {
@@ -117,7 +117,7 @@ public class PedidoDAO {
         return pedido;
     }
     
-    public void editar(Pedido pedido, String dataPedido, String valorPedido, String hora) throws SQLException, ClassNotFoundException {
+    public void editar(Pedido pedido, String dataPedido, Float valorPedido, String hora) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
         try {
@@ -126,7 +126,7 @@ public class PedidoDAO {
             String sql = "UPDATE pedido SET dataPedido = ?, valorPedido = ?, hora = ? WHERE id = ?";
             PreparedStatement comando = conn.prepareStatement(sql);
             comando.setString(1, dataPedido);
-            comando.setString(2, valorPedido);
+            comando.setFloat(2, valorPedido);
             comando.setString(3, hora);
             comando.setInt(4, pedido.getId());
             comando.execute();

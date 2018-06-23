@@ -22,26 +22,14 @@ public class Pedido {
     
     List<Item> itens;
     
-    Pedido com(int quantidade, String nome) {
-	itens.add(new Item(nome, quantidade));
-	return this;
+    public void adicionarItem(Item item) {
+	itens.add(item);
     }
     
-    void fechar() {
+    public void fechar() {
         this.setValorPedido(massaPizza);
         for(Item item : itens){
-            this.setValorPedido(valorPedido+(item.getQtd()*retornaPrecos(item.getOp())));
-        }
-    }
-    
-    private float retornaPrecos(String produto){
-        switch(produto){
-            case "bacon":
-                return 2;
-            case "tomate":
-                return (float) 1.5;
-            default:
-                return 1;
+            this.setValorPedido(valorPedido+item.getValor());
         }
     }
     
