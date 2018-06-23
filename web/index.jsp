@@ -53,9 +53,7 @@
                     <div class="col-md-12">      
                         <button class="btn btn-primary" onclick="window.location.href = 'clienteAdicionar.jsp'">Cadastrar cliente</button>
                         <hr>
-                        <form action="FrontController?action=LoginCliente" method="post">
-                            <button>Login Cliente </button>
-                        </form>
+                        <button class="btn btn-primary" onclick="window.location.href='clienteLogin.jsp'">Login cliente</button>
                         <hr>
                         <form action="FrontController?action=LoginFuncionario" method="post">
                             <button>Login Funcionario </button>
