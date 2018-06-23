@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
-    Created on : 21/06/2018, 09:36:15
-    Author     : Aluno
+    Created on : 24/04/2018, 01:07:26
+    Author     : Ramon
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -51,12 +51,25 @@
                 <h2 style="text-align: center">Cadastro</h1>
 
                     <div class="col-md-12">      
-                        <button class="btn btn-primary" onclick="window.location.href = 'clienteAdicionar.jsp'">Cadastrar cliente</button>
+                        <form action="FrontController?action=LerCliente" method="post">
+                            <button class="btn btn-success medio">Clientes</button>
+                        </form>
                         <hr>
-                        <button class="btn btn-primary" onclick="window.location.href = 'clienteLogin.jsp'">Login Cliente</button>
+                        <form action="FrontController?action=LerClienteCNPJ" method="post">
+                            <button class="btn btn-success medio">Clientes CNPJ</button>
+                        </form>
                         <hr>
+                        <form action="FrontController?action=LerPedido" method="post">
+                            <button class="btn btn-success medio">Pedido</button>
+                        </form>
                         <hr>
-                        <button class="btn btn-primary" onclick="window.location.href = 'funcionarioMenu.jsp'">Area Restrita</button>
+                        <form action="FrontController?action=LerFuncionario" method="post">
+                            <button class="btn btn-success medio">Funcionario</button>
+                        </form>
+                        <hr>
+                        <form action="FrontController?action=LerVeiculo" method="post">
+                            <button class="btn btn-success medio">Veiculo</button>
+                        </form>
                         <hr>
                     </div>      
             </div> 

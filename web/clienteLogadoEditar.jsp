@@ -1,4 +1,12 @@
-<%@page contentType="text/html" pageEncoding="windows-1252"%>
+<%-- 
+    Document   : clienteLogadoEditar
+    Created on : 23/06/2018, 14:57:02
+    Author     : Ramon
+--%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,9 +15,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-        <title>Cadastro de Clientes</title>
+        <title>Editar Cliente</title>
     </head>
-
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
@@ -20,20 +27,20 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">DPDelivery</a>
+                    <a class="navbar-brand" href="clienteLogadoMenu">DPDelivery</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="index.jsp">Início</a></li>
+                        <li><a href="clienteLogadoMenu.jsp">InÃ­cio</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <div id="main" class="container-fluid">
-            <h3 class="page-header">Cadastro de Clientes</h3>
+            <h3 class="page-header">Editar Cliente</h3>
 
-            <form action="FrontController?action=GravarCliente" method="post">
-
+            <form action="FrontController?action=EditarCliente" method="post">
+                <input type="hidden" required="" name="idCliente" value="${cliente.id}"/>
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="campo1">Nome</label>
@@ -51,7 +58,7 @@
                     </div>
 
                     <div class="form-group col-md-4">
-                        <label for="campo4">Número</label>
+                        <label for="campo4">NÃºmero</label>
                         <input type="text" class="form-control" id="campo4" name="txtNumero"/>
                     </div>
 
