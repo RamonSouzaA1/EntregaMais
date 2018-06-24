@@ -42,9 +42,9 @@
                         <input type="text" class="form-control" id="campo2" name="txtDataPedido"/>  
                     </div>
 
-                    <label class="checkbox-inline"><input type="checkbox" value="bacon">Bacon</label>
-                    <label class="checkbox-inline"><input type="checkbox" value="tomate">Tomate</label>
-                    <label class="checkbox-inline"><input type="checkbox" value="peperone">Peperone</label>
+                    <label class="checkbox-inline"><input type="checkbox" name = "bacon" value="bacon">Bacon</label>
+                    <label class="checkbox-inline"><input type="checkbox" name = "tomate" value="tomate">Tomate</label>
+                    <label class="checkbox-inline"><input type="checkbox" name = "peperone" value="peperone">Peperone</label>
 
                     <div class="form-group col-md-6">
                         <label for="campo3">Hora</label>

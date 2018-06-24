@@ -29,13 +29,13 @@ public class GravarPedidoAction implements Action {
         String hora = request.getParameter("txtHora");
         String dataPedido = request.getParameter("txtDataPedido");
 
-        String chkbacon = request.getParameter("bacon");
-        String chktomate = request.getParameter("tomate");
-        String chkpeperone = request.getParameter("peperone");
+        String chkbacon = String.valueOf(request.getParameter("bacon"));
+        String chktomate = String.valueOf(request.getParameter("tomate"));
+        String chkpeperone = String.valueOf(request.getParameter("peperone"));
 
-        boolean bacon = !chkbacon.isEmpty();
-        boolean tomate = !chktomate.isEmpty();
-        boolean peperone = !chkpeperone.isEmpty();
+        boolean bacon = !chkbacon.equals("null");
+        boolean tomate = !chktomate.equals("null");
+        boolean peperone = !chkpeperone.equals("null");
 
         Float valorPedido;
         if (hora.equals("")) {
