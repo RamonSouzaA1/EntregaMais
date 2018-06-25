@@ -53,6 +53,11 @@
                         <label for="campo4">Hora</label>
                         <input type="text" class="form-control" id="campo1" name="txtHora"/>
                     </div>   
+                    
+                    <div class="form-group col-md-6">
+                        <label for="campo4">Composição do Drink</label>
+                        <input type="text" class="form-control" id="campo1" name="txtDrink"/>
+                    </div> 
 
                 </div>
 

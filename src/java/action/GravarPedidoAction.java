@@ -28,12 +28,13 @@ public class GravarPedidoAction  implements Action {
         String hora = request.getParameter("txtHora");
         String dataPedido = request.getParameter("txtDataPedido");
         String valorPedido = request.getParameter("txtValorPedido");
+        int numero = Integer.parseInt(request.getParameter("txtNumero"));  
         if(hora.equals("")){
             response.sendRedirect("index.jsp");
         } else{
             try{
                 Pedido pedido = new Pedido(hora, dataPedido, valorPedido);
-                PedidoDAO.getInstance().save(pedido);
+                PedidoDAO.getInstance().save(pedido, numero);
                 response.sendRedirect("sucesso.jsp");
             } catch(SQLException ex)
             {

@@ -5,6 +5,8 @@
  */
 package model;
 
+import padraoDecorator.Coquetel;
+
 /**
  *
  * @author victor.domingos
@@ -15,12 +17,32 @@ public class Pedido {
     String dataPedido;
     String valorPedido;
     String hora;
+    String drink;
+    Coquetel meuCoquetel;
+
+    public Coquetel getMeuCoquetel() {
+        return meuCoquetel;
+    }
+
+    public void setMeuCoquetel(Coquetel meuCoquetel) {
+        this.meuCoquetel = meuCoquetel;
+    }
+    
+    
 
     public Pedido(int id, String dataPedido, String valorPedido, String hora) {
         this.id = id;
         this.dataPedido = dataPedido;
         this.valorPedido = valorPedido;
         this.hora = hora;
+    }
+
+    public String getDrink() {
+        return drink;
+    }
+
+    public void setDrink(String drink) {
+        this.drink = drink;
     }
 
     public Pedido() {
@@ -35,6 +57,14 @@ public class Pedido {
         this.dataPedido = dataPedido;
         this.valorPedido = valorPedido;
         
+    }
+
+    public Pedido(int id, String dataPedido, String valorPedido, String hora, String drink) {
+        this.id = id;
+        this.dataPedido = dataPedido;
+        this.valorPedido = valorPedido;
+        this.hora = hora;
+        this.drink = drink;
     }
 
     public int getId() {

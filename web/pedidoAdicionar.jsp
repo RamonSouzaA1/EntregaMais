@@ -51,6 +51,11 @@
                <label for="campo3">Hora</label>
                <input type="text" class="form-control" id="campo1" name="txtHora"/>
              </div>   
+                
+             <div class="form-group col-md-6">
+               <label for="campo1">Numero</label>
+               <input type="text" class="form-control" id="campo1" name="txtNumero"/>
+             </div>   
 
             </div>
 

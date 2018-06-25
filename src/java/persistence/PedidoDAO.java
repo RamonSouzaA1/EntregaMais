@@ -13,6 +13,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import model.Pedido;
+import padraoDecorator.Cachaca;
+import padraoDecorator.Coquetel;
+import padraoDecorator.Refrigerante;
 
 /**
  *
@@ -40,16 +43,25 @@ public class PedidoDAO {
         }
     }
     
-    public void save(Pedido pedido) throws SQLException,
+    public void save(Pedido pedido, int numero) throws SQLException,
             ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
+        
+        Coquetel meuCoquetel = new Cachaca();
+        
+        for(int i = 0; i< numero; i++){
+            
+            meuCoquetel = new Refrigerante(meuCoquetel);
+            
+        }
+        
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
             
-            st.execute("insert into pedido (hora, dataPedido, valorPedido)"
-                    + " values ('" + pedido.getHora() + "', '"+ pedido.getDataPedido() +"', '"+ pedido.getValorPedido()+"')");
+            st.execute("insert into pedido (hora, dataPedido, valorPedido, drink)"
+                    + " values ('" + pedido.getHora() + "', '"+ pedido.getDataPedido() +"', '"+ pedido.getValorPedido()+ "', '"+ meuCoquetel.getNome() + "')");
            
                         
                         
@@ -71,7 +83,7 @@ public class PedidoDAO {
             while (rs.next()){
                 Pedido pedido = new Pedido
                                     (rs.getInt("id"), rs.getString("dataPedido"), rs.getString("valorPedido"),
-                                    rs.getString("hora"));
+                                    rs.getString("hora"), rs.getString("drink"));
                 pedidos.add(pedido);
             }
         }catch (SQLException e) {
@@ -107,7 +119,7 @@ public class PedidoDAO {
             rs.first();
             pedido = new Pedido
                           (rs.getInt("id"), rs.getString("dataPedido"), rs.getString("valorPedido"),
-                                    rs.getString("hora"));
+                                    rs.getString("hora"), rs.getString("drink"));
             
         }catch (SQLException e) {
             throw e;
@@ -117,18 +129,19 @@ public class PedidoDAO {
         return pedido;
     }
     
-    public void editar(Pedido pedido, String dataPedido, String valorPedido, String hora) throws SQLException, ClassNotFoundException {
+    public void editar(Pedido pedido, String dataPedido, String valorPedido, String hora, String drink) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            String sql = "UPDATE pedido SET dataPedido = ?, valorPedido = ?, hora = ? WHERE id = ?";
+            String sql = "UPDATE pedido SET dataPedido = ?, valorPedido = ?, hora = ?, drink = ? WHERE id = ?";
             PreparedStatement comando = conn.prepareStatement(sql);
             comando.setString(1, dataPedido);
             comando.setString(2, valorPedido);
             comando.setString(3, hora);
-            comando.setInt(4, pedido.getId());
+            comando.setString(4, drink);
+            comando.setInt(5, pedido.getId());
             comando.execute();
         } catch (SQLException e) {
             throw e;

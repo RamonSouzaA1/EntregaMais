@@ -29,6 +29,7 @@ public class EditarPedidoAction implements Action {
         String dataPedido = request.getParameter("txtDataPedido");
         String valorPedido = request.getParameter("txtValorPedido");
         String hora = request.getParameter("txtHora");
+        String drink = request.getParameter("txtDrink");
 
         if (dataPedido.equals("") || valorPedido.equals((""))) {
             response.sendRedirect("index.jsp");
@@ -37,7 +38,7 @@ public class EditarPedidoAction implements Action {
                 PedidoDAO pedidoDAO = new PedidoDAO();
                 Pedido pedido = new Pedido();
                 pedido = pedidoDAO.obterPedido(id);
-                pedidoDAO.editar(pedido, dataPedido, valorPedido, hora);
+                pedidoDAO.editar(pedido, dataPedido, valorPedido, hora, drink);
                 response.sendRedirect("sucesso.jsp");
             } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");

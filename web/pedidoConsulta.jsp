@@ -37,17 +37,19 @@
         <table class="table table-bordered table-hover">
             <tr>
                 <td><strong>id</strong></td>
+                <td><strong>hora</strong></td>
                 <td><strong>dataPedido</strong></td>
                 <td><strong>valorPedido</strong></td>
-                <td><strong>hora</strong></td>
+                <td><strong>Drink</strong></td>
            </tr>
            
             <c:forEach items="${pedidos}" var="pedido">
                 <tr>
                     <td><c:out value="${pedido.id}"></c:out></td>
+                    <td><c:out value="${pedido.hora}"></c:out></td>
                     <td><c:out value="${pedido.dataPedido}"></c:out></td>
                     <td><c:out value="${pedido.valorPedido}"></c:out></td>
-                    <td><c:out value="${pedido.hora}"></c:out></td>
+                    <td><c:out value="${pedido.drink}"></c:out></td>
                     </tr>
             </c:forEach>
         </table>
