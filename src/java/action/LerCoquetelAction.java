@@ -8,6 +8,12 @@ package action;
 import controller.Action;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Pedido;
@@ -17,32 +23,24 @@ import persistence.PedidoDAO;
  *
  * @author victor.domingos
  */
-public class GravarPedidoAction  implements Action {
-
-    public GravarPedidoAction() {
-    
-    }
+public class LerCoquetelAction implements Action{
     
     public void execute(HttpServletRequest request,
             HttpServletResponse response) throws IOException{
-        String hora = request.getParameter("txtHora");
-        String dataPedido = request.getParameter("txtDataPedido");
-        String valorPedido = request.getParameter("txtValorPedido");
-         
-        if(hora.equals("")){
-            response.sendRedirect("index.jsp");
-        } else{
             try{
-                Pedido pedido = new Pedido(hora, dataPedido, valorPedido);
-                PedidoDAO.getInstance().savePedido(pedido);
-                response.sendRedirect("sucesso.jsp");
+                List<Pedido> pedidos = new ArrayList<Pedido>();
+                pedidos = PedidoDAO.getInstance().obterPedidos();
+                request.setAttribute("pedidos", pedidos);
+                RequestDispatcher view = request.getRequestDispatcher("pedidoConsulta.jsp");
+                view.forward(request, response);
             } catch(SQLException ex)
             {
                 response.sendRedirect("erro.jsp");
                 ex.printStackTrace();
             } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
-        }
+        } catch (ServletException ex) {
+            Logger.getLogger(LerPedidoAction.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

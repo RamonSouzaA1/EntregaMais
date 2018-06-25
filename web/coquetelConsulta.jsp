@@ -60,7 +60,6 @@
       <a href="pedidoEditar.jsp" class="btn btn-success">Editar</a>
       <a href="pedidoApagar.jsp" class="btn btn-danger">Apagar</a>
       <a href="index.jsp" class="btn btn-warning">Fechar</a>
-      <button class="btn btn-primary" onclick="window.location.href = 'coquetelAdicionar.jsp'">Cadastrar Coquetel</button>
      </div>
     </div>
     </div>

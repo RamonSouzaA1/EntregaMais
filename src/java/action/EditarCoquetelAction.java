@@ -17,32 +17,36 @@ import persistence.PedidoDAO;
  *
  * @author victor.domingos
  */
-public class GravarPedidoAction  implements Action {
+public class EditarCoquetelAction implements Action {
 
-    public GravarPedidoAction() {
-    
+    public EditarCoquetelAction() {
     }
-    
+
+    @Override
     public void execute(HttpServletRequest request,
-            HttpServletResponse response) throws IOException{
-        String hora = request.getParameter("txtHora");
+            HttpServletResponse response) throws IOException {
+        int id = Integer.parseInt(request.getParameter("txtId"));
         String dataPedido = request.getParameter("txtDataPedido");
         String valorPedido = request.getParameter("txtValorPedido");
-         
-        if(hora.equals("")){
+        String hora = request.getParameter("txtHora");
+        String drink = request.getParameter("txtDrink");
+
+        if (dataPedido.equals("") || valorPedido.equals((""))) {
             response.sendRedirect("index.jsp");
-        } else{
-            try{
-                Pedido pedido = new Pedido(hora, dataPedido, valorPedido);
-                PedidoDAO.getInstance().savePedido(pedido);
+        } else {
+            try {
+                PedidoDAO pedidoDAO = new PedidoDAO();
+                Pedido pedido = new Pedido();
+                pedido = pedidoDAO.obterPedido(id);
+                pedidoDAO.editar(pedido, dataPedido, valorPedido, hora, drink);
                 response.sendRedirect("sucesso.jsp");
-            } catch(SQLException ex)
-            {
+            } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");
                 ex.printStackTrace();
             } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-        }
+                ex.printStackTrace();
+            }
         }
     }
 }
+

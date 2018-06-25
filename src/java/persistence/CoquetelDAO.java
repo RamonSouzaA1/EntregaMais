@@ -21,13 +21,13 @@ import padraoDecorator.Refrigerante;
  *
  * @author victor.domingos
  */
-public class PedidoDAO {
-    private static PedidoDAO instance = new PedidoDAO();
+public class CoquetelDAO {
+    private static CoquetelDAO instance = new CoquetelDAO();
     
-    public PedidoDAO(){
+    public CoquetelDAO(){
     }
     
-    public static PedidoDAO getInstance(){
+    public static CoquetelDAO getInstance(){
         return instance;
     }
     
@@ -62,28 +62,6 @@ public class PedidoDAO {
             
             st.execute("insert into pedido (hora, dataPedido, valorPedido, drink)"
                     + " values ('" + pedido.getHora() + "', '"+ pedido.getDataPedido() +"', '"+ pedido.getValorPedido()+ "', '"+ meuCoquetel.getNome() + "')");
-           
-                        
-                        
-        } catch (SQLException e) {
-            throw e;
-        } finally {
-            closeResources(conn, st);
-        }
-    }
-    
-    public void savePedido(Pedido pedido) throws SQLException,
-            ClassNotFoundException {
-        Connection conn = null;
-        Statement st = null;
-        
-        
-        try {
-            conn = DatabaseLocator.getInstance().getConnection();
-            st = conn.createStatement();
-            
-            st.execute("insert into pedido (hora, dataPedido, valorPedido)"
-                    + " values ('" + pedido.getHora() + "', '"+ pedido.getDataPedido() +"', '"+ pedido.getValorPedido() +"')");
            
                         
                         

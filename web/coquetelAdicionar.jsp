@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-        <title>Cadastro de Pedidos</title>
+        <title>Cadastro de Coquetel</title>
     </head>
     
     <body>
@@ -30,9 +30,9 @@
          </div>
         </nav>
         <div id="main" class="container-fluid">
-         <h3 class="page-header">Cadastro de Pedidos</h3>
+         <h3 class="page-header">Cadastro de Coquetel</h3>
         
-        <form action="FrontController?action=GravarPedido" method="post">
+        <form action="FrontController?action=GravarCoquetel" method="post">
 
             <div class="row">
              
@@ -50,7 +50,12 @@
              <div class="form-group col-md-6">
                <label for="campo3">Hora</label>
                <input type="text" class="form-control" id="campo1" name="txtHora"/>
-             </div>    
+             </div>   
+                
+             <div class="form-group col-md-6">
+               <label for="campo1">Numero de doses</label>
+               <input type="text" class="form-control" id="campo1" name="txtNumero"/>
+             </div>   
 
             </div>
 
