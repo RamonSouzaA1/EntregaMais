@@ -40,7 +40,6 @@ public class EditarPedidoAction implements Action {
         boolean tomate = chktomate.isEmpty();
         boolean peperone = chkpeperone.isEmpty();
 
-        Float valorPedido;
         
         if (dataPedido.equals("")) {
             response.sendRedirect("index.jsp");
