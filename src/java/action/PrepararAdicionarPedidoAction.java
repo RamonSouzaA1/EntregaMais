@@ -12,7 +12,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Cliente;
+import model.Pizza;
 import persistence.ClienteDAO;
+import persistence.PizzaDAO;
 
 public class PrepararAdicionarPedidoAction implements Action{
     @Override
@@ -27,6 +29,9 @@ public class PrepararAdicionarPedidoAction implements Action{
                 Cliente cliente = ClienteDAO.getInstance().obterCliente(idCliente);
                 request.setAttribute("cliente", cliente);
 
+                List<Pizza> pizzas = PizzaDAO.getInstance().obterPizzas();
+                request.setAttribute("pizzas", pizzas);
+                
                 RequestDispatcher view = request.getRequestDispatcher("pedidoAdicionar.jsp");
                 view.forward(request, response);
             } catch (ClassNotFoundException ex) {

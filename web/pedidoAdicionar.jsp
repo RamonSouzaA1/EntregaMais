@@ -40,6 +40,25 @@
                 <input type="hidden" required="" name="idCliente" value="${cliente.id}"/>
                 <input type="hidden" required="" name="nome" value="${cliente.nome}"/>
                 <div class="row">
+                    <table class="table table-bordered table-hover">
+                        <tr>
+                            <td><stong>Cod.</stong></td>
+                            <td><stong>Nome</stong></td>
+                            <td><stong>Ingredientes</stong></td>
+                            <td><stong>Preço Média</stong></td>
+                            <td><stong>Preço Família</stong></td>
+                            <td><stong>Preço Família</stong></td>
+                        </tr>
+                        <c:forEach items="${pizzas}" var="pizza">
+                            <tr>
+                                <td><c:out value="${pizza.id}"></c:out></td>
+                                <td><c:out value="${pizza.nome}"></c:out></td>
+                                <td><c:out value="${pizza.ingrediente}"></c:out></td>
+                                <td><c:out value="${pizza.precoMedia}"></c:out></td>
+                                <td><c:out value="${pizza.precoFamilia}"></c:out></td>
+                            </tr>
+                        </c:forEach>
+                    </table>
                     <div class="form-group col-md-6">
                         <label for="campo1">Data Pedido</label>
                         <input type="text" class="form-control" id="campo2" name="txtDataPedido"/>  
