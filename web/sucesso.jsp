@@ -23,7 +23,11 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="index.jsp">Início</a></li>
+                        <form action="FrontController?action=PrepararMenuCliente" method="post">
+                            <input type="hidden" required="" name="idCliente" value="${cliente.id}" />
+                            <input type="text" required="" name="nome" value="${cliente.nome}" readonly/>
+                            <button  class="btn btn-primary" >Início</button>
+                        </form>
                     </ul>
                 </div>
             </div>
