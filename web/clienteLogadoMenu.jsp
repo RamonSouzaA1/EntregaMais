@@ -42,7 +42,7 @@
         </nav>
         <div class="col-md-12">
             <hr>
-            <form action="FrontController?action=PrepararPedidoCliente" method="post">
+            <form action="FrontController?action=PrepararAdicionarPedido" method="post">
                 <input type="hidden" required="" name="idCliente" value="${cliente.id}" />
                 <input type="hidden" required="" name="nome" value="${cliente.nome}" />
                 <button  class="btn btn-primary" >Fazer Pedido</button>
@@ -54,7 +54,7 @@
                 <button  class="btn btn-primary" >Editar meus dados pessoais</button>
             </form>
             <hr>
-            <form action="FrontController?action=PrepararHistoricoCliente" method="post">
+            <form action="FrontController?action=PrepararConsultaPedido" method="post">
                 <input type="hidden" required="" name="idCliente" value="${cliente.id}" />
                 <input type="hidden" required="" name="nome" value="${cliente.nome}" />
                 <button  class="btn btn-primary" >Ver Pedidos Anteriores</button>
