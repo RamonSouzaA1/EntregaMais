@@ -43,14 +43,13 @@ public class EditarClienteAction implements Action {
         } else {
             try {
                 ClienteDAO clienteDAO = new ClienteDAO();
-                Cliente cliente = new Cliente();
-                cliente = clienteDAO.obterCliente(id);
+                Cliente cliente = clienteDAO.obterCliente(id);
                 clienteDAO.editar(cliente, nome, logradouro, numero, bairro, cep, telefone, celular, doc);
-                
+
                 // Mantem o cliente logado na pagina
                 Cliente clienteLogado = ClienteDAO.getInstance().obterCliente(id);
                 request.setAttribute("cliente", clienteLogado);
-                
+
                 RequestDispatcher view = request.getRequestDispatcher("sucesso.jsp");
                 view.forward(request, response);
             } catch (SQLException ex) {
