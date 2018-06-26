@@ -1,4 +1,7 @@
 <%@page contentType="text/html" pageEncoding="windows-1252"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -44,7 +47,7 @@
                         <label for="campo1">Data Pedido</label>
                         <input type="text" class="form-control" id="campo2" name="txtDataPedido"/>  
                     </div>
-                    
+
                     <label class="checkbox-inline"><input type="checkbox" name = "bacon" value="bacon">Bacon</label>
                     <label class="checkbox-inline"><input type="checkbox" name = "tomate" value="tomate">Tomate</label>
                     <label class="checkbox-inline"><input type="checkbox" name = "peperone" value="peperone">Peperone</label>
@@ -53,21 +56,34 @@
                         <label for="campo3">Hora</label>
                         <input type="text" class="form-control" id="campo1" name="txtHora"/>
                     </div>    
+
+                    <div class="form-group">
+                        <label for="usr">Escolha sua pizza:</label>
+                        <select class="selectpicker" name="txtIdPizza">
+                            <option value="0" <c:if test="${pizza.id != null}"> selected</c:if>></option>
+                            <c:forEach items="${pizzas}" var="pizza">
+                                <option value="${pizza.id}">
+                                    ${pizza.nome}
+                                </option>
+                            </c:forEach>
+                        </select>
+                    </div>    
+
                 </div>
-                <hr>
+
                 <div id="actions" class="row">
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-primary">Salvar</button>
                     </div>
                 </div>
-                <br>
+
 
             </form>
-                <form action="FrontController?action=PrepararCoquetel" method="post">
-                            <input type="hidden" required="" name="idCliente" value="${cliente.id}"/>
-                            <input type="hidden" required="" name="nome" value="${cliente.nome}"/>
-                            <button type="submit" class="btn btn-primary">Pedir Coquetel</button>
-                        </form>
+            <form action="FrontController?action=PrepararCoquetel" method="post">
+                <input type="hidden" required="" name="idCliente" value="${cliente.id}"/>
+                <input type="hidden" required="" name="nome" value="${cliente.nome}"/>
+                <button type="submit" class="btn btn-primary">Pedir Coquetel</button>
+            </form>
         </div>
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

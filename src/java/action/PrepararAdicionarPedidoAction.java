@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Cliente;
 import persistence.ClienteDAO;
+import persistence.PizzaDAO;
 
 public class PrepararAdicionarPedidoAction implements Action{
     @Override
@@ -24,9 +25,11 @@ public class PrepararAdicionarPedidoAction implements Action{
         } else {
             try {
                 // Mantem o cliente logado na pagina
+                
                 Cliente cliente = ClienteDAO.getInstance().obterCliente(idCliente);
                 request.setAttribute("cliente", cliente);
-
+                request.setAttribute("pizzas", PizzaDAO.getInstance().obterPizzas());
+                
                 RequestDispatcher view = request.getRequestDispatcher("pedidoAdicionar.jsp");
                 view.forward(request, response);
             } catch (ClassNotFoundException ex) {
