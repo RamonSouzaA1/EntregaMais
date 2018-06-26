@@ -53,8 +53,6 @@
                     <div class="col-md-12">      
                         <button class="btn btn-primary" onclick="window.location.href = 'clienteAdicionar.jsp'">Cadastrar cliente</button>
                         <hr>
-                        <button class="btn btn-primary" onclick="window.location.href = 'pedidoAdiconar.jsp'">Cadastrar pedido</button>
-                        <hr>
                         <button class="btn btn-primary" onclick="window.location.href = 'clienteLogin.jsp'">Login Cliente</button>
                         <hr>
                         <br><br><br><br>

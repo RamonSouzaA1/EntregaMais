@@ -58,6 +58,11 @@
                 <div id="actions" class="row">
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-primary">Salvar</button>
+                        <form action="FrontController?action=PrepararCoquetel" method="post">
+                            <input type="hidden" required="" name="idCliente" value="${cliente.id}"/>
+                            <input type="hidden" required="" name="nome" value="${cliente.nome}"/>
+                            <button type="submit" class="btn btn-primary">Pedir Coquetel</button>
+                        </form>
                     </div>
                 </div>
 

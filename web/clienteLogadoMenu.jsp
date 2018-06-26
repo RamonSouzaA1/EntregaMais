@@ -55,7 +55,7 @@
                 <button  class="btn btn-primary" >Editar meus dados pessoais</button>
             </form>
             <hr>
-            <form action="FrontController?action=PrepararConsultaPedido" method="post">
+            <form action="FrontController?action=LerPedido" method="post">
                 <input type="hidden" required="" name="idCliente" value="${cliente.id}" />
                 <input type="hidden" required="" name="nome" value="${cliente.nome}" />
                 <button  class="btn btn-primary" >Ver Pedidos Anteriores</button>
