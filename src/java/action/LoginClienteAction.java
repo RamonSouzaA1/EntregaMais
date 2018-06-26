@@ -37,7 +37,7 @@ public class LoginClienteAction implements Action {
                         cliente = ClienteDAO.getInstance().obterCliente(id);
                     }
                 }
-                if (cliente != null) {
+                if (cliente.getNome() != null) {
                     // se encontrado o cliente, ele vai ser dispachado para a tela seguinte no objeto cliente
                     request.setAttribute("cliente", cliente);
                     RequestDispatcher view = request.getRequestDispatcher("clienteLogadoMenu.jsp");

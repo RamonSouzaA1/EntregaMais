@@ -35,6 +35,7 @@
                             <input type="hidden" required="" name="idCliente" value="${cliente.id}" />
                             <input type="text" required="" name="nome" value="${cliente.nome}" readonly/>
                             <button  class="btn btn-primary" >Início</button>
+                            <a href="index.jsp" class="btn btn-primary">Sair</a>
                         </form>
                     </ul>
                 </div>
