@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.util.List;
 import padraoDecorator.Coquetel;
 
 /**
@@ -15,11 +16,33 @@ public class Pedido {
 
     int id;
     String dataPedido;
-    String valorPedido;
+    float valorPedido;
     String hora;
     String drink;
     Coquetel meuCoquetel;
+    private float massaPizza = 2;
 
+    List<Item> itens;
+
+    public void adicionarItem(Item item) {
+        itens.add(item);
+    }
+
+    public void fechar() {
+        this.setValorPedido(massaPizza);
+        for (Item item : itens) {
+            this.setValorPedido(valorPedido + item.getValor());
+        }
+    }
+    
+    public float getValorPedido() {
+        return valorPedido;
+    }
+
+    public void setValorPedido(float valorPedido) {
+        this.valorPedido = valorPedido;
+    }
+    
     public Coquetel getMeuCoquetel() {
         return meuCoquetel;
     }
@@ -30,7 +53,7 @@ public class Pedido {
     
     
 
-    public Pedido(int id, String dataPedido, String valorPedido, String hora) {
+    public Pedido(int id, String dataPedido, float valorPedido, String hora) {
         this.id = id;
         this.dataPedido = dataPedido;
         this.valorPedido = valorPedido;
@@ -52,14 +75,14 @@ public class Pedido {
         this.id = id;
     }
 
-    public Pedido(String hora, String dataPedido, String valorPedido) {
+    public Pedido(String hora, String dataPedido, float valorPedido) {
         this.hora = hora;
         this.dataPedido = dataPedido;
         this.valorPedido = valorPedido;
         
     }
 
-    public Pedido(int id, String dataPedido, String valorPedido, String hora, String drink) {
+    public Pedido(int id, String dataPedido, float valorPedido, String hora, String drink) {
         this.id = id;
         this.dataPedido = dataPedido;
         this.valorPedido = valorPedido;
@@ -81,14 +104,6 @@ public class Pedido {
 
     public void setDataPedido(String dataPedido) {
         this.dataPedido = dataPedido;
-    }
-
-    public String getValorPedido() {
-        return valorPedido;
-    }
-
-    public void setValorPedido(String valorPedido) {
-        this.valorPedido = valorPedido;
     }
 
     public String getHora() {
