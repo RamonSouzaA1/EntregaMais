@@ -27,31 +27,40 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="clienteLogadoMenu.jsp">Entrega Mais</a>
+                    <a class="navbar-brand" href="#">Entrega Mais</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><input type="number" required="" name="idCliente" value="${cliente.id}" readonly/></li>
-                        <li><input type="text" required="" name="nome" value="${cliente.nome}" readonly/></li>
-                        <li><a href="clienteLogadoMenu.jsp">Início</a></li>
+                        <form action="FrontController?action=PrepararMenuCliente" method="post">
+                            <input type="hidden" required="" name="idCliente" value="${cliente.id}" />
+                            <input type="text" required="" name="nome" value="${cliente.nome}" readonly/>
+                            <button  class="btn btn-primary" >Início</button>
+                        </form>
                     </ul>
                 </div>
             </div>
         </nav>
-        <form action="FrontController?action=PrepararEditarCliente" method="post">
-            <input type="hidden" required="" name="idCliente" value="${cliente.id}" />
-            <input type="hidden" required="" name="nome" value="${cliente.nome}" />
-            <button  class="btn btn-primary" >Editar meus dados pessoais</button>
-        </form>
-        <form action="FrontController?action=PrepararPedidoCliente" method="post">
-            <input type="hidden" required="" name="idCliente" value="${cliente.id}" />
-            <input type="hidden" required="" name="nome" value="${cliente.nome}" />
-            <button  class="btn btn-primary" >Fazer Pedido</button>
-        </form>
-        <form action="FrontController?action=PrepararHistoricoCliente" method="post">
-            <input type="hidden" required="" name="idCliente" value="${cliente.id}" />
-            <input type="hidden" required="" name="nome" value="${cliente.nome}" />
-            <button  class="btn btn-primary" >Ver Pedidos Anteriores</button>
-        </form>
+        <div class="col-md-12">
+            <hr>
+            <form action="FrontController?action=PrepararAdicionarPedido" method="post">
+                <input type="hidden" required="" name="idCliente" value="${cliente.id}" />
+                <input type="hidden" required="" name="nome" value="${cliente.nome}" />
+                <button  class="btn btn-primary" >Fazer Pedido</button>
+            </form>
+            <hr>
+            <form action="FrontController?action=PrepararEditarCliente" method="post">
+                <input type="hidden" required="" name="idCliente" value="${cliente.id}" />
+                <input type="hidden" required="" name="nome" value="${cliente.nome}" />
+                <button  class="btn btn-primary" >Editar meus dados pessoais</button>
+            </form>
+            <hr>
+            <form action="FrontController?action=PrepararConsultaPedido" method="post">
+                <input type="hidden" required="" name="idCliente" value="${cliente.id}" />
+                <input type="hidden" required="" name="nome" value="${cliente.nome}" />
+                <button  class="btn btn-primary" >Ver Pedidos Anteriores</button>
+            </form>
+            <hr>
+        </div>
+
     </body>
 </html>
