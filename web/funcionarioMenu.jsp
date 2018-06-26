@@ -40,6 +40,10 @@
                     </form>
                     <button class="btn btn-primary" onclick="window.location.href = 'funcionarioApagar.jsp'">Apagar funcionario</button>
                     <button class="btn btn-primary" onclick="window.location.href = 'funcionarioEditar.jsp'">Editar funcionario</button>
+                    
+                    <form action="FrontController?action=LerPizza" method="post">
+                        <button>Consultar Pizzas </button>
+                    </form>
                 </div>
             </div>
         </div>
