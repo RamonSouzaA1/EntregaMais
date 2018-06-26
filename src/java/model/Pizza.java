@@ -31,6 +31,13 @@ public class Pizza {
         this.precoFamilia = precoFamilia;
     }
 
+    public Pizza(String nome, String ingrediente, double precoMedia, double precoFamilia) {
+        this.nome = nome;
+        this.ingrediente = ingrediente;
+        this.precoMedia = precoMedia;
+        this.precoFamilia = precoFamilia;
+    }
+
     public int getId() {
         return id;
     }

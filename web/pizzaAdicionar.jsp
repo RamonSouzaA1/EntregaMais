@@ -24,35 +24,35 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <form action="FrontController?action=PrepararMenuCliente" method="post">
-                            <input type="hidden" required="" name="idCliente" value="${cliente.id}" />
-                            <input type="text" required="" name="nome" value="${cliente.nome}" readonly/>
-                            <button  class="btn btn-primary" >Início</button>
-                        </form>
                     </ul>
                 </div>
             </div>
         </nav>
         <div id="main" class="container-fluid">
-            <h3 class="page-header">Cadastro de Pedidos</h3>
+            <h3 class="page-header">Cadastro de Pizza</h3>
 
-            <form action="FrontController?action=GravarPedido" method="post">
+            <form action="FrontController?action=GravarPizza" method="post">
                 <input type="hidden" required="" name="idCliente" value="${cliente.id}"/>
                 <input type="hidden" required="" name="nome" value="${cliente.nome}"/>
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <label for="campo1">Data Pedido</label>
-                        <input type="text" class="form-control" id="campo2" name="txtDataPedido"/>  
+                        <label for="campo1">Nome</label>
+                        <input type="text" class="form-control" id="campo2" name="txtNome"/>  
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="campo2">Valor Pedido</label>
-                        <input type="text" class="form-control" id="campo3" name="txtValorPedido"/>
+                        <label for="campo2">Ingrediente</label>
+                        <input type="text" class="form-control" id="campo3" name="txtIngrediente"/>
                     </div>
 
                     <div class="form-group col-md-6">
-                        <label for="campo3">Hora</label>
-                        <input type="text" class="form-control" id="campo1" name="txtHora"/>
-                    </div>    
+                        <label for="campo3">Preço Media</label>
+                        <input type="text" class="form-control" id="campo1" name="txtPrecoMedia"/>
+                    </div> 
+                    
+                    <div class="form-group col-md-6">
+                        <label for="campo3">Preço Família</label>
+                        <input type="text" class="form-control" id="campo1" name="txtPrecoFamilia"/>
+                    </div> 
                 </div>
                 <hr>
                 <div id="actions" class="row">
@@ -63,11 +63,6 @@
                 <br>
 
             </form>
-                <form action="FrontController?action=PrepararCoquetel" method="post">
-                            <input type="hidden" required="" name="idCliente" value="${cliente.id}"/>
-                            <input type="hidden" required="" name="nome" value="${cliente.nome}"/>
-                            <button type="submit" class="btn btn-primary">Pedir Coquetel</button>
-                        </form>
         </div>
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
