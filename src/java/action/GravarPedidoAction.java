@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Cliente;
+import model.Item;
 import model.Pedido;
 import persistence.ClienteDAO;
 import persistence.PedidoDAO;
@@ -33,7 +34,14 @@ public class GravarPedidoAction implements Action {
             HttpServletResponse response) throws IOException {
         String hora = request.getParameter("txtHora");
         String dataPedido = request.getParameter("txtDataPedido");
-        String valorPedido = request.getParameter("txtValorPedido");
+        
+        String chkbacon = String.valueOf(request.getParameter("bacon"));
+        String chktomate = String.valueOf(request.getParameter("tomate"));
+        String chkpeperone = String.valueOf(request.getParameter("peperone"));
+
+        boolean bacon = !chkbacon.equals("null");
+        boolean tomate = !chktomate.equals("null");
+        boolean peperone = !chkpeperone.equals("null");
 
         int idCliente = Integer.parseInt(request.getParameter("idCliente"));
         String nome = request.getParameter("nome");
@@ -42,7 +50,22 @@ public class GravarPedidoAction implements Action {
             response.sendRedirect("erro.jsp");
         } else {
             try {
-                Pedido pedido = new Pedido(hora, dataPedido, valorPedido);
+                Pedido pedido = new Pedido();
+
+                if (bacon) {
+                    pedido.adicionarItem(new Item("bacon"));
+                }
+                if (tomate) {
+                    pedido.adicionarItem(new Item("tomate"));
+                }
+                if (peperone) {
+                    pedido.adicionarItem(new Item("peperone"));
+                }
+
+                pedido.fechar();
+                pedido.setDataPedido(dataPedido);
+                pedido.setHora(hora);
+                
                 PedidoDAO.getInstance().savePedido(pedido);
                 // Mantem o cliente logado na pagina
                 Cliente clienteLogado = ClienteDAO.getInstance().obterCliente(idCliente);

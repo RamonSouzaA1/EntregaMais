@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Item;
 import model.Pedido;
 import persistence.PedidoDAO;
 
@@ -27,18 +28,40 @@ public class EditarPedidoAction implements Action {
             HttpServletResponse response) throws IOException {
         int id = Integer.parseInt(request.getParameter("txtId"));
         String dataPedido = request.getParameter("txtDataPedido");
-        String valorPedido = request.getParameter("txtValorPedido");
+        
         String hora = request.getParameter("txtHora");
         String drink = request.getParameter("txtDrink");
 
-        if (dataPedido.equals("") || valorPedido.equals((""))) {
+        String chkbacon = request.getParameter("bacon");
+        String chktomate = request.getParameter("tomate");
+        String chkpeperone = request.getParameter("peperone");
+
+        boolean bacon = chkbacon.isEmpty();
+        boolean tomate = chktomate.isEmpty();
+        boolean peperone = chkpeperone.isEmpty();
+
+        
+        if (dataPedido.equals("")) {
             response.sendRedirect("index.jsp");
         } else {
             try {
                 PedidoDAO pedidoDAO = new PedidoDAO();
                 Pedido pedido = new Pedido();
+
+                if (!bacon) {
+                    pedido.adicionarItem(new Item("bacon"));
+                }
+                if (!tomate) {
+                    pedido.adicionarItem(new Item("tomate"));
+                }
+                if (!peperone) {
+                    pedido.adicionarItem(new Item("peperone"));
+                }
+
+                pedido.fechar();
+
                 pedido = pedidoDAO.obterPedido(id);
-                pedidoDAO.editar(pedido, dataPedido, valorPedido, hora, drink);
+                pedidoDAO.editar(pedido, dataPedido, String.valueOf(pedido.getValorPedido()), hora, drink);
                 response.sendRedirect("sucesso.jsp");
             } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");

@@ -44,10 +44,10 @@
                         <label for="campo1">Data Pedido</label>
                         <input type="text" class="form-control" id="campo2" name="txtDataPedido"/>  
                     </div>
-                    <div class="form-group col-md-4">
-                        <label for="campo2">Valor Pedido</label>
-                        <input type="text" class="form-control" id="campo3" name="txtValorPedido"/>
-                    </div>
+                    
+                    <label class="checkbox-inline"><input type="checkbox" name = "bacon" value="bacon">Bacon</label>
+                    <label class="checkbox-inline"><input type="checkbox" name = "tomate" value="tomate">Tomate</label>
+                    <label class="checkbox-inline"><input type="checkbox" name = "peperone" value="peperone">Peperone</label>
 
                     <div class="form-group col-md-6">
                         <label for="campo3">Hora</label>

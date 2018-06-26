@@ -104,7 +104,7 @@ public class PedidoDAO {
             ResultSet rs = st.executeQuery("SELECT * FROM pedido");
             while (rs.next()){
                 Pedido pedido = new Pedido
-                                    (rs.getInt("id"), rs.getString("dataPedido"), rs.getString("valorPedido"),
+                                    (rs.getInt("id"), rs.getString("dataPedido"), Float.valueOf(rs.getString("valorPedido")),
                                     rs.getString("hora"), rs.getString("drink"));
                 pedidos.add(pedido);
             }
@@ -140,7 +140,7 @@ public class PedidoDAO {
             ResultSet rs = st.executeQuery("select * from pedido where id = " + id);
             rs.first();
             pedido = new Pedido
-                          (rs.getInt("id"), rs.getString("dataPedido"), rs.getString("valorPedido"),
+                          (rs.getInt("id"), rs.getString("dataPedido"), Float.valueOf(rs.getString("valorPedido")),
                                     rs.getString("hora"), rs.getString("drink"));
             
         }catch (SQLException e) {
