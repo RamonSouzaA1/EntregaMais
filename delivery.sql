@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 26-Jun-2018 às 10:57
+-- Generation Time: 26-Jun-2018 às 13:15
 -- Versão do servidor: 5.7.19
--- PHP Version: 5.6.31
+-- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `telefone` text,
   `cpf` text,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `cliente`
@@ -50,7 +50,9 @@ INSERT INTO `cliente` (`id`, `nome`, `logradouro`, `numero`, `bairro`, `cep`, `c
 (9, 'Alexandre', 'Rua A', 10, 'Santa Luzia', '36050-100', '32991309811', '3232319504', '12345678910'),
 (10, 'Camila', '456', 97, '468', '541', '213', '231321', '2132'),
 (11, '2', '2', 2, '2', '2', '22', '22', '2'),
-(12, '155', '1', 1, '1', '1', '1', '1', '1');
+(12, '155', '1', 1, '1', '1', '1', '1', '1'),
+(13, 'Ramon', 'ksdjsk', 123, 'kjdklsj', '123132', '1231', '123', 'null'),
+(14, 'Kaio', 'dskjdal', 12345, 'kjdskl', '123', '123', '123', 'null');
 
 -- --------------------------------------------------------
 
@@ -199,18 +201,24 @@ CREATE TABLE IF NOT EXISTS `pedido` (
   `hora` varchar(255) NOT NULL,
   `dataPedido` varchar(255) DEFAULT NULL,
   `valorPedido` varchar(255) DEFAULT NULL,
+  `drink` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `pedido`
 --
 
-INSERT INTO `pedido` (`id`, `hora`, `dataPedido`, `valorPedido`) VALUES
-(1, '1', '1', '1'),
-(2, '2', '2', '2'),
-(3, '4564', '123564', '1231'),
-(4, '5564', '45644', '546');
+INSERT INTO `pedido` (`id`, `hora`, `dataPedido`, `valorPedido`, `drink`) VALUES
+(1, '1', '1', '1', NULL),
+(2, '2', '2', '2', NULL),
+(3, '4564', '123564', '1231', NULL),
+(4, '5564', '45644', '546', NULL),
+(5, '2313', '121', '1231', NULL),
+(6, '1', '1', '1', 'Cachaça + Refrigerante'),
+(7, '1', '1', '1', 'Cachaça + Refrigerante + Refrigerante + Refrigerante + Refrigerante + Refrigerante'),
+(8, '123', '1231', '123', 'Cachaça + Refrigerante'),
+(9, '1', '1', '1', 'Cachaça + Refrigerante');
 
 -- --------------------------------------------------------
 
@@ -226,7 +234,7 @@ CREATE TABLE IF NOT EXISTS `pizza` (
   `precoMedia` double NOT NULL,
   `precoFamilia` double NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `pizza`
@@ -234,7 +242,10 @@ CREATE TABLE IF NOT EXISTS `pizza` (
 
 INSERT INTO `pizza` (`id`, `nome`, `ingrediente`, `precoMedia`, `precoFamilia`) VALUES
 (1, 'Portuguesa', 'Mussarela, presunto, cebola e azeitonas', 38, 42),
-(2, 'Calabresa', 'Mussarela, calabresa, cebola e azeitonas', 38, 42);
+(2, 'Calabresa', 'Mussarela, calabresa, cebola e azeitonas', 38, 42),
+(3, '1', '1', 1, 1),
+(4, '2', '2', 2, 2),
+(5, '1', '1', 1, 1);
 
 -- --------------------------------------------------------
 
