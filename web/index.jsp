@@ -57,7 +57,7 @@
                         <hr>
                         <br><br><br><br>
                         <hr>
-                        <button class="btn btn-primary" onclick="window.location.href = 'funcionarioMenu.jsp'">Area Restrita</button>
+                        <button class="btn btn-primary" onclick="window.location.href = 'areaRestritaMenu.jsp'">Area Restrita</button>
                         <hr>
                     </div>      
             </div> 

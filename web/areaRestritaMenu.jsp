@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-        <title>Menu - Funcionario</title>
+        <title>Menu - Area Restrita</title>
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -29,20 +29,17 @@
             </div>
         </nav>
         <div id="main" class="container-fluid">
-            <h3 class="page-header">Menu Funcionarios</h3>
+            <h3 class="page-header">Área Restrita</h3>
 
             <div class="row">
                 <div class="col-md-12">
 
-                    <button class="btn btn-primary" onclick="window.location.href = 'funcionarioAdicionar.jsp'">Adicionar funcionario</button>
                     <form action="FrontController?action=LerFuncionario" method="post">
-                        <button>Consultar Funcionarios </button>
+                        <button class="btn btn-primary"> Funcionarios </button>
                     </form>
-                    <button class="btn btn-primary" onclick="window.location.href = 'funcionarioApagar.jsp'">Apagar funcionario</button>
-                    <button class="btn btn-primary" onclick="window.location.href = 'funcionarioEditar.jsp'">Editar funcionario</button>
-                    <button class="btn btn-primary" onclick="window.location.href = 'pizzaAdicionar.jsp'">Pizza adicionar</button>
+                <hr>
                     <form action="FrontController?action=LerPizza" method="post">
-                        <button>Consultar Pizzas </button>
+                        <button class="btn btn-primary" > Pizzas </button>
                     </form>
                 </div>
             </div>

@@ -38,7 +38,8 @@
         </nav>
         <div id="main" class="container-fluid">
             <h3 class="page-header">Cadastro de Pedidos</h3>
-
+        <div class="container-fluid">
+          <div class="row">     
             <form action="FrontController?action=GravarPedido" method="post">
                 <input type="hidden" required="" name="idCliente" value="${cliente.id}"/>
                 <input type="hidden" required="" name="nome" value="${cliente.nome}"/>
@@ -47,16 +48,16 @@
                         <label for="campo1">Data Pedido</label>
                         <input type="text" class="form-control" id="campo2" name="txtDataPedido"/>  
                     </div>
-
+                    <div class="form-group col-md-6">
                     <label class="checkbox-inline"><input type="checkbox" name = "bacon" value="bacon">Bacon</label>
                     <label class="checkbox-inline"><input type="checkbox" name = "tomate" value="tomate">Tomate</label>
                     <label class="checkbox-inline"><input type="checkbox" name = "peperone" value="peperone">Peperone</label>
 
-                    <div class="form-group col-md-6">
+                    
                         <label for="campo3">Hora</label>
                         <input type="text" class="form-control" id="campo1" name="txtHora"/>
                     </div>    
-
+                    </div>
                     <div class="form-group">
                         <label for="usr">Escolha sua pizza:</label>
                         <select class="selectpicker" name="txtIdPizza">
@@ -79,11 +80,16 @@
 
 
             </form>
+        
+            <hr>
             <form action="FrontController?action=PrepararCoquetel" method="post">
                 <input type="hidden" required="" name="idCliente" value="${cliente.id}"/>
                 <input type="hidden" required="" name="nome" value="${cliente.nome}"/>
                 <button type="submit" class="btn btn-primary">Pedir Coquetel</button>
             </form>
+            </div>
+    </div>
+</div>
         </div>
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
