@@ -32,7 +32,7 @@ public class GravarClienteCNPJAction implements Action {
             try{
                 ClienteCNPJ cliente = new ClienteCNPJ(nome, logradouro, numero, bairro, cep, telefone, celular, doc);
                 ClienteCnpjDAO.getInstance().save(cliente);
-                response.sendRedirect("sucesso.jsp");
+                response.sendRedirect("sucessoCadastroCliente.jsp");
             } catch(SQLException ex)
             {
                 response.sendRedirect("erro.jsp");

@@ -12,22 +12,19 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import model.Pedido;
-import padraoDecorator.Cachaca;
-import padraoDecorator.Coquetel;
-import padraoDecorator.Refrigerante;
+import model.Entregador;
 
 /**
  *
- * @author victor.domingos
+ * @author Ramon
  */
-public class CoquetelDAO {
-    private static CoquetelDAO instance = new CoquetelDAO();
+public class EntregadorDAO {
+    private static EntregadorDAO instance = new EntregadorDAO();
     
-    public CoquetelDAO(){
+    public EntregadorDAO(){
     }
     
-    public static CoquetelDAO getInstance(){
+    public static EntregadorDAO getInstance(){
         return instance;
     }
     
@@ -43,64 +40,54 @@ public class CoquetelDAO {
         }
     }
     
-    public void save(Pedido pedido, int numero) throws SQLException,
+    public void save(Entregador entregador) throws SQLException,
             ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
-        
-        Coquetel meuCoquetel = new Cachaca();
-        
-        for(int i = 0; i< numero; i++){
-            
-            meuCoquetel = new Refrigerante(meuCoquetel);
-            
-        }
-        
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            
-            st.execute("insert into pedido (hora, dataPedido, valorPedido, drink)"
-                    + " values ('" + pedido.getHora() + "', '"+ pedido.getDataPedido() +"', '"+ pedido.getValorPedido()+ "', '"+ meuCoquetel.getNome() + "')");
-           
-                        
-                        
+            st.execute("INSERT INTO entregador (nome, situacao, id_veiculo)"
+                    + " VALUES ('" + entregador.getNome() + "', '" + entregador.getDados() + "', '" 
+                    + entregador.getId_veiculo() +"')");
         } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
     }
-  
-    public List<Pedido> obterPedidos() throws ClassNotFoundException, SQLException{
+    
+    public List<Entregador> obterEntregadores() throws ClassNotFoundException, SQLException{
         Connection conn = null;
         Statement st = null;
-        List<Pedido> pedidos = new ArrayList<Pedido>();
+        List<Entregador> entregadores = new ArrayList<Entregador>();
         try{
             conn = DatabaseLocator.getInstance().getConnection();
-            st = conn.createStatement();    
-            ResultSet rs = st.executeQuery("SELECT * FROM pedido");
+            st = conn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM entregador");
             while (rs.next()){
-                Pedido pedido = new Pedido
-                                    (rs.getInt("id"), rs.getString("dataPedido"), rs.getFloat("valorPedido"),
-                                    rs.getString("hora"), rs.getString("drink"));
-                pedidos.add(pedido);
+                Entregador entregador = new Entregador
+                                    (rs.getInt("id"),
+                                     rs.getString("nome"), 
+                                     rs.getString("situacao"),
+                                     rs.getInt("id_veiculo"));
+                entregadores.add(entregador);
             }
         }catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
-        return pedidos;
+        return entregadores;
     }
     
-    public void delete(Pedido pedido) throws SQLException, ClassNotFoundException {
+    public void delete(Entregador entregador) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            st.execute("DELETE FROM pedido WHERE id = " + pedido.getId());
+            st.execute("DELETE FROM entregador WHERE id = " + entregador.getId());
         } catch (SQLException e) {
             throw e;
         } finally {
@@ -108,40 +95,41 @@ public class CoquetelDAO {
         }
     }
     
-    public   Pedido obterPedido(int id) throws ClassNotFoundException, SQLException {
+    public   Entregador obterEntregador(int id) throws ClassNotFoundException, SQLException {
         Connection conn = null;
         Statement st = null;
-        Pedido pedido = null;
+        Entregador entregador = null;
         try{
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from pedido where id = " + id);
+            ResultSet rs = st.executeQuery("select * from entregador where id = " + id);
             rs.first();
-            pedido = new Pedido
-                          (rs.getInt("id"), rs.getString("dataPedido"), rs.getFloat("valorPedido"),
-                                    rs.getString("hora"), rs.getString("drink"));
+            entregador = new Entregador
+                          (rs.getInt("id"),
+                                     rs.getString("nome"), 
+                                     rs.getString("situacao"),
+                                     rs.getInt("id_veiculo"));
             
         }catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
-        return pedido;
+        return entregador;
     }
     
-    public void editar(Pedido pedido, String dataPedido, String valorPedido, String hora, String drink) throws SQLException, ClassNotFoundException {
+    public  void editar(Entregador entregador, String nome, String situacao, int id_veiculo) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            String sql = "UPDATE pedido SET dataPedido = ?, valorPedido = ?, hora = ?, drink = ? WHERE id = ?";
+            String sql = "UPDATE entregador SET nome = ?, situacao = ?, id_veiculo = ?  WHERE id = ?";
             PreparedStatement comando = conn.prepareStatement(sql);
-            comando.setString(1, dataPedido);
-            comando.setString(2, valorPedido);
-            comando.setString(3, hora);
-            comando.setString(4, drink);
-            comando.setInt(5, pedido.getId());
+            comando.setString(1, nome);
+            comando.setString(2, situacao);
+            comando.setInt(3, id_veiculo);
+            comando.setInt(4, entregador.getId());
             comando.execute();
         } catch (SQLException e) {
             throw e;

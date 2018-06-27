@@ -53,6 +53,8 @@
                     <div class="col-md-12">      
                         <button class="btn btn-primary" onclick="window.location.href = 'clienteAdicionar.jsp'">Cadastrar cliente</button>
                         <hr>
+                        <button class="btn btn-primary" onclick="window.location.href = 'clienteCNPJAdicionar.jsp'">Cadastrar cliente cnpj</button>
+                        <hr>
                         <button class="btn btn-primary" onclick="window.location.href = 'clienteLogin.jsp'">Login Cliente</button>
                         <hr>
                         <br><br><br><br>
@@ -64,10 +66,19 @@
             <div class="row" style="text-align: center">
                 <h2 style="text-align: center">Verificação</h2>
                 <form action="FrontController?action=LerFuncionario" method="post">
-                    <button class="btn btn-success medio">Funções Funcionários</button>
+                    <button class="btn btn-success medio">Consulta Funcionário</button>
                 </form>
 
             </div>
+            <br>
+            <div class="row" style="text-align: center">
+                <form action="FrontController?action=LerEncomenda" method="post">
+                    <button class="btn btn-success medio">Consulta Encomenda</button>
+                </form>
+
+            </div>
+            
+            <br>
             <br>
             <script src="js/jquery.min.js"></script>
             <script src="js/bootstrap.min.js"></script>

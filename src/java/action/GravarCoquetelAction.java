@@ -36,7 +36,7 @@ public class GravarCoquetelAction  implements Action {
         String nome = request.getParameter("nome");
         String hora = request.getParameter("txtHora");
         String dataPedido = request.getParameter("txtDataPedido");
-        String valorPedido = request.getParameter("txtValorPedido");
+        float valorPedido = Float.parseFloat(request.getParameter("txtNumero")); 
         int numero = Integer.parseInt(request.getParameter("txtNumero"));  
         if(hora.equals("") || nome.equals("")){
             response.sendRedirect("index.jsp");
