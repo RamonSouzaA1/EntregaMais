@@ -32,7 +32,7 @@
          </div>
         </nav>
         <div id="main" class="container-fluid">
-         <h3 class="page-header">Consulta de Clientes</h3>
+         <h3 class="page-header">Pedidos de Coquetéis</h3>
         <div class="table-responsive"> 
         <table class="table table-bordered table-hover">
             <tr>

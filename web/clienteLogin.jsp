@@ -33,7 +33,7 @@
         <form action="FrontController?action=LoginCliente" method="post">
 
             <div class="row">
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-offset-3 col-md-6">
                     <hr>
                     <label for="campo1">Nome: </label>
                     <input type="text" class="form-control" id="campo1" name="txtNome"/>
