@@ -15,7 +15,7 @@
         <link href="css/style.css" rel="stylesheet">
         <title>Entrega Mais</title>
     </head>
-    <body>
+    <body background="img/Restaurante.jpg">
         <style>
             .pequeno {
                 width: 10%;
@@ -51,16 +51,25 @@
                 <h2 style="text-align: center">Cadastro</h1>
 
                     <div class="col-md-12">      
+<<<<<<< refs/remotes/origin/master
                         <button class="btn btn-primary" onclick="window.location.href = 'clienteAdicionar.jsp'">Cadastrar cliente</button>
                         <hr>
                         <button class="btn btn-primary" onclick="window.location.href = 'clienteCNPJAdicionar.jsp'">Cadastrar cliente cnpj</button>
                         <hr>
                         <button class="btn btn-primary" onclick="window.location.href = 'clienteLogin.jsp'">Login Cliente</button>
                         <hr>
+=======
+                        <button class="btn btn-warning" onclick="window.location.href = 'clienteAdicionar.jsp'">Cadastrar cliente</button>
+                        <br>
+                        <br>
+                                           
+                        <button class="btn btn-warning" onclick="window.location.href = 'clienteLogin.jsp'">Login Cliente</button>
+                        <br>
+>>>>>>> Index modificado
                         <br><br><br><br>
-                        <hr>
-                        <button class="btn btn-primary" onclick="window.location.href = 'areaRestritaMenu.jsp'">Area Restrita</button>
-                        <hr>
+                        <br>
+                        <button class="btn btn-warning" onclick="window.location.href = 'areaRestritaMenu.jsp'">Area Restrita</button>
+                        <br>
                     </div>      
             </div> 
             <div class="row" style="text-align: center">
