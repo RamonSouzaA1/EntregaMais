@@ -51,41 +51,28 @@
                 <h2 style="text-align: center">Cadastro</h1>
 
                     <div class="col-md-12">      
-<<<<<<< refs/remotes/origin/master
+
                         <button class="btn btn-primary" onclick="window.location.href = 'clienteAdicionar.jsp'">Cadastrar cliente</button>
                         <hr>
                         <button class="btn btn-primary" onclick="window.location.href = 'clienteCNPJAdicionar.jsp'">Cadastrar cliente cnpj</button>
                         <hr>
                         <button class="btn btn-primary" onclick="window.location.href = 'clienteLogin.jsp'">Login Cliente</button>
                         <hr>
-=======
-                        <button class="btn btn-warning" onclick="window.location.href = 'clienteAdicionar.jsp'">Cadastrar cliente</button>
-                        <br>
-                        <br>
+
+                        
                                            
                         <button class="btn btn-warning" onclick="window.location.href = 'clienteLogin.jsp'">Login Cliente</button>
                         <br>
->>>>>>> Index modificado
+
                         <br><br><br><br>
                         <br>
                         <button class="btn btn-warning" onclick="window.location.href = 'areaRestritaMenu.jsp'">Area Restrita</button>
                         <br>
                     </div>      
             </div> 
-            <div class="row" style="text-align: center">
-                <h2 style="text-align: center">Verificação</h2>
-                <form action="FrontController?action=LerFuncionario" method="post">
-                    <button class="btn btn-success medio">Consulta Funcionário</button>
-                </form>
-
-            </div>
+           
             <br>
-            <div class="row" style="text-align: center">
-                <form action="FrontController?action=LerEncomenda" method="post">
-                    <button class="btn btn-success medio">Consulta Encomenda</button>
-                </form>
-
-            </div>
+            
             
             <br>
             <br>

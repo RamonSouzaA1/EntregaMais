@@ -41,6 +41,16 @@
                     <form action="FrontController?action=LerPizza" method="post">
                         <button class="btn btn-primary" > Pizzas </button>
                     </form>
+                <hr>
+                    <form action="FrontController?action=LerVeiculo" method="post">
+                        <button class="btn btn-primary" > Veículo </button>
+                    </form>
+                <hr>
+                <form action="FrontController?action=LerEncomenda" method="post">
+                    <button class="btn btn-primary">Encomenda</button>
+                </form>
+
+            </div>
                 </div>
             </div>
         </div>
