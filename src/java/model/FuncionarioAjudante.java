@@ -25,7 +25,7 @@ public class FuncionarioAjudante extends FuncionarioCozinha{
     
     
     public FuncionarioAjudante(FuncionarioCozinha proximoFuncionario){
-        listaFuncao.add(RolTarefas.getInstance().getFuncaoEntregar());
+        listaFuncao.add(RolTarefas.getInstance().getFuncaoPreparoAlimento());
         this.setProximoFuncionario(proximoFuncionario);
         this.descricaoCargo = this.getDescricaoCargo();
     }

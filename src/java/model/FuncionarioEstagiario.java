@@ -23,7 +23,7 @@ public class FuncionarioEstagiario extends FuncionarioCozinha{
     }
     
     public FuncionarioEstagiario(FuncionarioCozinha proximoFuncionario){
-        listaFuncao.add(RolTarefas.getInstance().getFuncaoMontar());
+        listaFuncao.add(RolTarefas.getInstance().getFuncaoDescascarAlimento());
         this.setProximoFuncionario(proximoFuncionario);
         this.descricaoCargo = this.getDescricaoCargo();
     }

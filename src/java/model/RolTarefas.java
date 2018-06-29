@@ -15,11 +15,11 @@ public class RolTarefas {
     private FuncaoAjudarPreparoAlimento funcaoAjudarPreparoAlimento;
     private FuncaoFinalizarAlimento funcaoFinalizarAlimento;
 
-    public FuncaoFinalizarAlimento getFuncaoProjetar() {
+    public FuncaoFinalizarAlimento getFuncaoFinalizarAlimento() {
         return funcaoFinalizarAlimento;
     }
 
-    public void setFuncaoProjetar(FuncaoFinalizarAlimento funcaoFinalizarAlimento) {
+    public void setFuncaoFinalizarAlimento(FuncaoFinalizarAlimento funcaoFinalizarAlimento) {
         this.funcaoFinalizarAlimento = funcaoFinalizarAlimento;
     }
     
@@ -31,19 +31,19 @@ public class RolTarefas {
         RolTarefas.rolTarefas = rolTarefas;
     }
 
-    public FuncaoDescascarAlimento getFuncaoEntregar() {
+    public FuncaoDescascarAlimento getFuncaoDescascarAlimento() {
         return funcaoDescascarAlimento;
     }
 
-    public void setFuncaoEntregar(FuncaoDescascarAlimento funcaoDescascarAlimento) {
+    public void setFuncaoDescascarAlimento(FuncaoDescascarAlimento funcaoDescascarAlimento) {
         this.funcaoDescascarAlimento = funcaoDescascarAlimento;
     }
 
-    public FuncaoAjudarPreparoAlimento getFuncaoMontar() {
+    public FuncaoAjudarPreparoAlimento getFuncaoPreparoAlimento() {
         return funcaoAjudarPreparoAlimento;
     }
 
-    public void setFuncaoMontar(FuncaoAjudarPreparoAlimento funcaoAjudarPreparoAlimento) {
+    public void setFuncaoPreparoAlimento(FuncaoAjudarPreparoAlimento funcaoAjudarPreparoAlimento) {
         this.funcaoAjudarPreparoAlimento = funcaoAjudarPreparoAlimento;
     }
 
