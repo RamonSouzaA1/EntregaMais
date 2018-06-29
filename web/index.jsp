@@ -70,6 +70,14 @@
                         <br>
                     </div>      
             </div> 
+            
+            <div class="row" style="text-align: center">
+                <h2 style="text-align: center">Verificação</h2>
+                <form action="FrontController?action=LerFuncionarioCozinha" method="post">
+                    <button class="btn btn-success medio">Funções Funcionários</button>
+                </form>
+
+            </div>
            
             <br>
             
