@@ -75,9 +75,8 @@
 
         <div id="actions" class="row">
             <div class="col-md-12">
-                <a href="entregadorAdicionar.jsp" class="btn btn-primary">Adicionar</a>
-                <a href="entregadorEditar.jsp" class="btn btn-success">Editar</a>
-                <a href="entregadorApagar.jsp" class="btn btn-danger">Apagar</a>
+                <a href="entregadorAdicionar.jsp" class="btn btn-primary">Adicionar Tarefa</a>
+               
                 <a href="index.jsp" class="btn btn-warning">Fechar</a>
             </div>
         </div>
