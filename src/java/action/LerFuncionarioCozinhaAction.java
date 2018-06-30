@@ -47,7 +47,7 @@ public class LerFuncionarioCozinhaAction implements Action {
             view.forward(request, response);
         
         } catch (ServletException ex) {
-            Logger.getLogger(LerEntregadorAction.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LerFuncionarioCozinhaAction.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
